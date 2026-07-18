@@ -66,15 +66,6 @@ const useCaseHighlights = [
   },
 ];
 
-const adminRoutes = [
-  { route: '/admin/dashboard', value: 'Executive view of performance, traffic, conversions, and AI engagement.' },
-  { route: '/admin/content', value: 'Editorial workflow for stories, collections, campaigns, and launch pages.' },
-  { route: '/admin/ai-studio', value: 'Manage prompts, content generation, recommendations, and AI-assisted workflows.' },
-  { route: '/admin/users', value: 'Role-based access for editors, marketers, partners, and internal operators.' },
-  { route: '/admin/analytics', value: 'Monitor funnel performance, user journeys, and business health in real time.' },
-  { route: '/admin/settings', value: 'Secure integrations, permissions, deployment controls, and system configuration.' },
-];
-
 const capabilities = [
   'Strategy-led digital product design grounded in business outcomes.',
   'Full-stack build capability across frontends, backends, AI layers, and operations.',
@@ -87,6 +78,38 @@ const differentiators = [
   'We design for conversion, retention, and long-term operations — not just visual polish.',
   'We build platforms that are beautiful on the surface and robust underneath.',
   'We create systems that can evolve from launch into a full digital growth engine.',
+];
+
+const featurePanels = [
+  {
+    title: 'Cultural intelligence',
+    body: 'We translate heritage, identity, and audience nuance into experiences that feel authentic, premium, and highly relevant.',
+    accent: 'from-fuchsia-500/25 to-cyan-500/20',
+  },
+  {
+    title: 'AI that augments growth',
+    body: 'From discovery to personalization, AI becomes a business tool that improves relevance, engagement, and conversion.',
+    accent: 'from-cyan-500/20 to-emerald-500/15',
+  },
+  {
+    title: 'Operational clarity',
+    body: 'Teams gain a cleaner way to manage content, campaigns, users, and approvals without slowing down delivery.',
+    accent: 'from-amber-500/20 to-fuchsia-500/15',
+  },
+  {
+    title: 'Future-ready infrastructure',
+    body: 'Scalable architecture, clean integrations, and resilient deployments keep your platform ready for the next stage.',
+    accent: 'from-slate-600/40 to-slate-800/40',
+  },
+];
+
+const galleryItems = [
+  'Immersive brand storytelling',
+  'Interactive product journeys',
+  'AI-assisted customer experience',
+  'Streamlined operations',
+  'Trusted digital infrastructure',
+  'Premium visual systems',
 ];
 
 export default function Home() {
@@ -137,25 +160,21 @@ export default function Home() {
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-fuchsia-950/40 backdrop-blur">
             <div className="rounded-[1.6rem] border border-cyan-400/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5">
               <div className="flex items-center justify-between pb-4 text-sm text-slate-400">
-                <span>Architecture schematic</span>
-                <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-1 text-cyan-200">Live</span>
+                <span>Platform experience</span>
+                <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-1 text-cyan-200">Responsive</span>
               </div>
-              <div className="grid gap-3 md:grid-cols-2">
+              <div className="space-y-3">
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex items-center gap-2 text-cyan-200"><PanelTop size={16} /> Experience layer</div>
-                  <p className="mt-2 text-sm text-slate-300">Fast frontends, storytelling components, and conversion journeys.</p>
+                  <div className="flex items-center gap-2 text-cyan-200"><PanelTop size={16} /> Brand-led experience</div>
+                  <p className="mt-2 text-sm text-slate-300">Editorial interfaces, premium storytelling, and frictionless journeys that guide visitors to action.</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex items-center gap-2 text-fuchsia-200"><Bot size={16} /> AI layer</div>
-                  <p className="mt-2 text-sm text-slate-300">Recommendation engines, assistants, and tailored content delivery.</p>
+                  <div className="flex items-center gap-2 text-fuchsia-200"><Bot size={16} /> Intelligent product layer</div>
+                  <p className="mt-2 text-sm text-slate-300">Search, recommendations, and AI-driven assistance that make complex products easier to understand.</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex items-center gap-2 text-emerald-200"><DatabaseZap size={16} /> Data layer</div>
-                  <p className="mt-2 text-sm text-slate-300">Secure data flows, analytics, and scalable integrations.</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex items-center gap-2 text-amber-200"><Layers3 size={16} /> Admin layer</div>
-                  <p className="mt-2 text-sm text-slate-300">Control panels for content, orders, workflows, and permissions.</p>
+                  <div className="flex items-center gap-2 text-emerald-200"><DatabaseZap size={16} /> Unified operations</div>
+                  <p className="mt-2 text-sm text-slate-300">A single, secure foundation that connects content, automation, analytics, and team workflows.</p>
                 </div>
               </div>
             </div>
@@ -196,35 +215,35 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
           <div className="mb-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Distinctive features</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Why this use case stands out in the market</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Feature intelligence</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">The capabilities that make a difference in real-world use</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {useCaseHighlights.map((item) => (
-              <div key={item.title} className="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
+              <motion.div key={item.title} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
                 <p className="text-lg font-semibold text-white">{item.title}</p>
                 <p className="mt-2 text-sm leading-7 text-slate-400">{item.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8 backdrop-blur">
-          <div className="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 backdrop-blur">
+          <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Admin routes</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">The operational layer that makes the platform feel enterprise-ready</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Supported features</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white">Every capability is designed to create measurable business value</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-slate-400">These admin routes are where the product becomes a real operating system for content, growth, and customer experience.</p>
+            <p className="max-w-2xl text-sm leading-7 text-slate-400">These features matter because they improve trust, speed, conversion, and control across the full customer and team journey.</p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {adminRoutes.map((route) => (
-              <div key={route.route} className="rounded-[1.25rem] border border-white/10 bg-slate-950/70 p-4">
-                <p className="text-sm font-semibold text-cyan-200">{route.route}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-400">{route.value}</p>
-              </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {featurePanels.map((panel) => (
+              <motion.div key={panel.title} whileHover={{ y: -4, scale: 1.01 }} className={`rounded-[1.35rem] border border-white/10 bg-gradient-to-br ${panel.accent} p-5`}>
+                <p className="text-lg font-semibold text-white">{panel.title}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-300">{panel.body}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -274,24 +293,19 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Customer-facing features</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Designed to feel premium and convert.</h2>
-            <ul className="mt-6 space-y-3 text-slate-300">
-              {features.map((item) => (
-                <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={18} />{item}</li>
-              ))}
-            </ul>
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Scrolling showcase</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">A premium digital experience, built to feel effortless and modern</h2>
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Admin portal features</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Powerful behind-the-scenes control.</h2>
-            <ul className="mt-6 space-y-3 text-slate-300">
-              {portalFeatures.map((item) => (
-                <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-fuchsia-300" size={18} />{item}</li>
+          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/70 p-4">
+            <motion.div initial={{ x: '-20%' }} animate={{ x: ['-20%', '-50%'] }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="flex gap-4 whitespace-nowrap">
+              {[...galleryItems, ...galleryItems].map((item, index) => (
+                <div key={`${item}-${index}`} className="w-64 rounded-[1.2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/20 to-cyan-500/20 px-5 py-6 text-lg font-semibold text-white">
+                  {item}
+                </div>
               ))}
-            </ul>
+            </motion.div>
           </div>
         </div>
       </section>
