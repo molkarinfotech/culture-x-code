@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import NavWrapper from '@/components/NavWrapper'
+import PageTransition from '@/components/PageTransition'
 
 export const metadata: Metadata = {
   title: 'molkarinfotech — Technology that grows your business',
@@ -20,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <NavWrapper />
         <div className="page-wrapper">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </div>
       </body>
     </html>

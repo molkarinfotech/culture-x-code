@@ -99,6 +99,69 @@ body {
 }
 .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 7px 8px;
+}
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+/* ── MOBILE DRAWER ── */
+.mobile-drawer {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px 28px;
+  box-shadow: var(--shadow-lg);
+}
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-nav-links li a {
+  display: block;
+  padding: 12px 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.18s;
+}
+.mobile-nav-links li a:hover,
+.mobile-nav-links li a.active { color: var(--accent); }
+.mobile-nav-links li:last-child a { border-bottom: none; }
+.mobile-cta {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  padding: 13px 24px !important;
+  font-size: 0.9rem !important;
+  border-bottom: none !important;
+}
+
 /* ── BUTTONS ── */
 .btn-primary {
   padding: 10px 24px; background: var(--accent); color: var(--bg);
@@ -160,6 +223,8 @@ body {
 @media (max-width: 900px) {
   .pf-nav { padding: 0 20px; }
   .pf-nav-links { display: none; }
+  .pf-nav-cta { display: none; }
+  .hamburger { display: flex; }
   .pf-section, .pf-section-full { padding: 60px 24px; }
   .pf-footer { flex-direction: column; gap: 20px; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }

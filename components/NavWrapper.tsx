@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -30,6 +31,31 @@ const MoonIcon = () => (
 export default function NavWrapper() {
   const pathname = usePathname()
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const reduced = useReducedMotion()
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  // Close mobile menu on route change
+  useEffect(() => { setMobileOpen(false) }, [pathname])
+
+  // Close on outside click
+  useEffect(() => {
+    if (!mobileOpen) return
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMobileOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [mobileOpen])
+
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileOpen(false) }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [])
 
   useEffect(() => {
     const stored = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null
@@ -45,26 +71,94 @@ export default function NavWrapper() {
     try { localStorage.setItem('theme', next) } catch {}
   }
 
+  const drawerVariants = {
+    hidden: { opacity: 0, y: reduced ? 0 : -12, transition: { duration: 0.18, ease: [0.4, 0, 1, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: reduced ? 0 : -10 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: reduced ? 0 : i * 0.05, duration: 0.24, ease: [0.16, 1, 0.3, 1] },
+    }),
+  }
+
   return (
-    <nav className="pf-nav">
-      <Link href="/" className="pf-nav-logo">molkarinfotech</Link>
-      <ul className="pf-nav-links">
-        {NAV_LINKS.map(({ href, label }) => (
-          <li key={href}>
-            <Link href={href} className={pathname === href ? 'active' : ''}>{label}</Link>
-          </li>
-        ))}
-      </ul>
-      <div className="pf-nav-right">
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        >
-          {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-        </button>
-        <Link href="/contact" className="btn-primary">Start a Project</Link>
-      </div>
-    </nav>
+    <>
+      <nav className="pf-nav" ref={menuRef}>
+        <Link href="/" className="pf-nav-logo">molkarinfotech</Link>
+
+        {/* Desktop links */}
+        <ul className="pf-nav-links">
+          {NAV_LINKS.map(({ href, label }) => (
+            <li key={href}>
+              <Link href={href} className={pathname === href ? 'active' : ''}>{label}</Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="pf-nav-right">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <Link href="/contact" className="btn-primary pf-nav-cta">Start a Project</Link>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="hamburger"
+            onClick={() => setMobileOpen(o => !o)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+          >
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.15 }}
+            />
+            <motion.span
+              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="mobile-drawer"
+            variants={drawerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+          >
+            <ul className="mobile-nav-links">
+              {NAV_LINKS.map(({ href, label }, i) => (
+                <motion.li key={href} custom={i} variants={itemVariants} initial="hidden" animate="visible">
+                  <Link
+                    href={href}
+                    className={pathname === href ? 'active' : ''}
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                </motion.li>
+              ))}
+              <motion.li custom={NAV_LINKS.length} variants={itemVariants} initial="hidden" animate="visible">
+                <Link href="/contact" className="btn-primary mobile-cta" onClick={() => setMobileOpen(false)}>
+                  Start a Project
+                </Link>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
