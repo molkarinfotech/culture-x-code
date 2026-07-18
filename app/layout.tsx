@@ -1,29 +1,28 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from 'next'
+import './globals.css'
+import NavWrapper from '@/components/NavWrapper'
 
 export const metadata: Metadata = {
-  title: 'Culture x Code | Premium digital experiences for cultural brands',
-  description: 'Culture x Code builds custom websites, AI features, secure admin portals, and scalable digital products for modern businesses.',
+  title: 'molkarinfotech — Technology that grows your business',
+  description:
+    'A boutique technology partner for small and medium businesses. Custom-built digital solutions — e-commerce, web apps, AI integration — at a price point that delivers real ROI. You own everything.',
   keywords: ['Next.js agency', 'custom website development', 'AI features', 'admin portal', 'e-commerce'],
   openGraph: {
-    title: 'Culture x Code',
-    description: 'Premium digital experiences for cultural-tech brands.',
+    title: 'molkarinfotech',
+    description: 'Technology that grows your business.',
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Culture x Code',
-    description: 'Premium digital experiences for cultural-tech brands.',
-  },
-};
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <body>
+        <NavWrapper />
+        <div className="page-wrapper">
+          {children}
+        </div>
+      </body>
     </html>
-  );
+  )
 }
