@@ -1,0 +1,261 @@
+"use client";
+
+import { motion } from 'framer-motion';
+import { ArrowRight, Bot, BrainCircuit, Building2, ChevronRight, ShieldCheck, Sparkles, Workflow, Rocket, Store, DatabaseZap, Layers3, CircleDollarSign, Cpu, PanelTop, Globe2, MessageSquareText } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const formSchema = z.object({
+  name: z.string().min(2, 'Please share your name.'),
+  email: z.string().email('Please enter a valid email.'),
+  company: z.string().optional(),
+  project: z.string().min(10, 'A bit more detail helps us scope it properly.'),
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+const services = [
+  { title: 'Custom websites', description: 'Premium marketing sites with conversion-focused UX and editorial storytelling.', icon: Globe2 },
+  { title: 'E-commerce', description: 'Fast, high-conversion storefronts designed to scale from launch to global growth.', icon: Store },
+  { title: 'AI features', description: 'Smart assistants, content copilots, recommendation engines, and search experiences.', icon: BrainCircuit },
+  { title: 'Secure admin portals', description: 'Role-based dashboards for teams to manage content, orders, and operations safely.', icon: ShieldCheck },
+  { title: 'Automations', description: 'Workflow automations that cut repetitive manual tasks across your business.', icon: Workflow },
+  { title: 'Scalable deployments', description: 'Cloud-first architecture with performance monitoring and reliable releases.', icon: Rocket },
+];
+
+const features = [
+  'Immersive storytelling that feels like your brand.',
+  'CMS and content workflows made for creative teams.',
+  'Secure authentication, role controls, and audit-friendly systems.',
+  'Analytics-ready architecture for real growth measurement.',
+];
+
+const portalFeatures = [
+  'Role-based access for admins, staff, and partners.',
+  'Operational dashboards for orders, leads, and content health.',
+  'Approval pipelines for launches, content, and actions.',
+  'API integrations with CRM, ERP, and marketing stacks.',
+];
+
+const industries = ['Arts & culture', 'Education & research', 'Retail & lifestyle', 'Health & wellness', 'SaaS & B2B services'];
+
+const process = [
+  'Discover the business outcome and brand story.',
+  'Design the experience with clear conversion paths.',
+  'Build with clean architecture and modular integrations.',
+  'Launch, optimize, and scale with confidence.',
+];
+
+export default function Home() {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver: zodResolver(formSchema) });
+
+  const onSubmit = (data: FormValues) => {
+    const mailto = `mailto:hello@culturexcode.com?subject=Project inquiry from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || 'N/A'}\nProject: ${data.project}`)}`;
+    window.location.href = mailto;
+  };
+
+  return (
+    <main className="overflow-hidden">
+      <section className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 pb-16 pt-8 lg:px-10">
+        <header className="mb-10 flex items-center justify-between rounded-full border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+          <div className="flex items-center gap-3">
+            <div className="rounded-full bg-fuchsia-500/20 p-2 text-fuchsia-300"><Sparkles size={18} /></div>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.24em] text-slate-200 uppercase">Culture x Code</p>
+              <p className="text-xs text-slate-400">cultural-tech agency</p>
+            </div>
+          </div>
+          <a href="#contact" className="rounded-full border border-fuchsia-500/40 bg-fuchsia-500/10 px-4 py-2 text-sm font-medium text-fuchsia-200 transition hover:bg-fuchsia-500/20">Book a strategy call</a>
+        </header>
+
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <p className="mb-4 inline-flex items-center rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-sm font-medium text-cyan-200">
+              <Cpu className="mr-2" size={16} /> Premium digital products for cultural and emerging brands
+            </p>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
+              We turn culture into growth with beautiful digital systems.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-slate-300 sm:text-xl">
+              From custom websites and e-commerce to AI features, admin portals, and scalable deployments, we build experiences that feel premium and perform like engines.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-fuchsia-500 px-5 py-3 font-semibold text-white transition hover:bg-fuchsia-400">Start a project <ArrowRight size={18} /></a>
+              <a href="#case-study" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:bg-white/10">See Ethnic Story AI Gen</a>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-400">
+              <span className="rounded-full border border-white/10 px-3 py-1">App Router</span>
+              <span className="rounded-full border border-white/10 px-3 py-1">TypeScript</span>
+              <span className="rounded-full border border-white/10 px-3 py-1">Tailwind</span>
+              <span className="rounded-full border border-white/10 px-3 py-1">Motion UI</span>
+            </div>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-fuchsia-950/40 backdrop-blur">
+            <div className="rounded-[1.6rem] border border-cyan-400/20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-5">
+              <div className="flex items-center justify-between pb-4 text-sm text-slate-400">
+                <span>Architecture schematic</span>
+                <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2 py-1 text-cyan-200">Live</span>
+              </div>
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-center gap-2 text-cyan-200"><PanelTop size={16} /> Experience layer</div>
+                  <p className="mt-2 text-sm text-slate-300">Fast frontends, storytelling components, and conversion journeys.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-center gap-2 text-fuchsia-200"><Bot size={16} /> AI layer</div>
+                  <p className="mt-2 text-sm text-slate-300">Recommendation engines, assistants, and tailored content delivery.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-center gap-2 text-emerald-200"><DatabaseZap size={16} /> Data layer</div>
+                  <p className="mt-2 text-sm text-slate-300">Secure data flows, analytics, and scalable integrations.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-center gap-2 text-amber-200"><Layers3 size={16} /> Admin layer</div>
+                  <p className="mt-2 text-sm text-slate-300">Control panels for content, orders, workflows, and permissions.</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="case-study" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-cyan-950/20 backdrop-blur lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Case study</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Ethnic Story AI Gen</h2>
+              <p className="mt-4 text-lg text-slate-300">A premium cultural-tech platform that needed a website that educates, converts, and supports an AI-powered content experience.</p>
+              <div className="mt-6 space-y-3 text-sm text-slate-300">
+                <div className="flex items-start gap-3"><CircleDollarSign className="mt-1 text-fuchsia-300" size={18} /> Built a conversion-first narrative site that turns curiosity into inquiries.</div>
+                <div className="flex items-start gap-3"><MessageSquareText className="mt-1 text-fuchsia-300" size={18} /> Added AI-assisted discovery flows that make complex offerings feel effortless.</div>
+                <div className="flex items-start gap-3"><Building2 className="mt-1 text-fuchsia-300" size={18} /> Delivered an operational admin portal for managing content, users, and campaigns.</div>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {[
+                ['Launch-ready experience', 'Fast, elegant storytelling with clear CTA architecture.'],
+                ['AI-powered search', 'Smart discovery for rich cultural and educational content.'],
+                ['Secure admin portal', 'Role-based tools for content teams and operators.'],
+                ['Scalable deployment', 'Cloud-first approach designed for future growth.'],
+              ].map(([title, desc]) => (
+                <div key={title} className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+                  <p className="text-lg font-semibold text-white">{title}</p>
+                  <p className="mt-2 text-sm text-slate-400">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Services</p>
+            <h2 className="mt-2 text-3xl font-semibold text-white">Built for ambitious digital growth.</h2>
+          </div>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <motion.article key={service.title} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-6">
+              <service.icon className="text-fuchsia-300" size={24} />
+              <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
+              <p className="mt-2 text-sm leading-7 text-slate-400">{service.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-2">
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Customer-facing features</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Designed to feel premium and convert.</h2>
+            <ul className="mt-6 space-y-3 text-slate-300">
+              {features.map((item) => (
+                <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={18} />{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 to-slate-800 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Admin portal features</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Powerful behind-the-scenes control.</h2>
+            <ul className="mt-6 space-y-3 text-slate-300">
+              {portalFeatures.map((item) => (
+                <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-fuchsia-300" size={18} />{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Industries served</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Built to fit cultural, commerce, and innovation brands.</h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {industries.map((industry) => (
+                <span key={industry} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">{industry}</span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Build process</p>
+            <ol className="mt-6 space-y-4 text-slate-300">
+              {process.map((step, index) => (
+                <li key={step} className="flex gap-3"><span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-fuchsia-500/20 text-sm font-semibold text-fuchsia-200">0{index + 1}</span><span>{step}</span></li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Contact</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Let’s build something that grows with your brand.</h2>
+            <p className="mt-4 text-slate-300">Share your vision and we’ll shape a roadmap that aligns design, technology, and growth.</p>
+            <div className="mt-8 rounded-[1.5rem] border border-fuchsia-500/20 bg-fuchsia-500/10 p-5 text-sm text-slate-300">
+              <p className="font-semibold text-white">Final CTA</p>
+              <p className="mt-2">“Is your current website just a digital brochure—or is it actively helping your business grow?”</p>
+            </div>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="text-sm text-slate-300">
+                <span className="mb-2 block">Name</span>
+                <input {...register('name')} className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 outline-none ring-0" />
+                {errors.name && <p className="mt-2 text-xs text-rose-300">{errors.name.message}</p>}
+              </label>
+              <label className="text-sm text-slate-300">
+                <span className="mb-2 block">Email</span>
+                <input {...register('email')} className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 outline-none ring-0" />
+                {errors.email && <p className="mt-2 text-xs text-rose-300">{errors.email.message}</p>}
+              </label>
+            </div>
+            <label className="mt-5 block text-sm text-slate-300">
+              <span className="mb-2 block">Company</span>
+              <input {...register('company')} className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 outline-none ring-0" />
+            </label>
+            <label className="mt-5 block text-sm text-slate-300">
+              <span className="mb-2 block">Project details</span>
+              <textarea {...register('project')} rows={5} className="w-full rounded-xl border border-white/10 bg-slate-950/70 px-4 py-3 outline-none ring-0" />
+              {errors.project && <p className="mt-2 text-xs text-rose-300">{errors.project.message}</p>}
+            </label>
+            <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400">Send inquiry <ArrowRight size={18} /></button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-white/10 px-6 py-8 text-sm text-slate-400 lg:flex-row lg:px-10">
+        <p>© 2026 Culture x Code. Strategy, design, and engineering for modern growth.</p>
+        <a href="/privacy" className="text-slate-300 transition hover:text-white">Privacy</a>
+      </footer>
+    </main>
+  );
+}
