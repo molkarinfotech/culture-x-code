@@ -13,7 +13,7 @@ const SERVICES = [
   ['Your data, forever yours',     'Backend',        'Secure databases, authentication, and API infrastructure that you own outright. No vendor lock-in. Full source code on handover.',                    'Supabase · PostgreSQL · TypeScript'],
   ['Works on every device',        'Mobile-first',   'Every project is designed at 375px first. Touch targets, responsive layouts, and tested across all screen sizes before launch.',                        'Responsive CSS · Touch UX'],
   ['AI where it actually helps',   'AI Integration', 'Automated image tagging, content classification, smart search. We find the right AI tool for your specific workflow — not the trendiest one.',         'Google Vision · LLM APIs'],
-] as [string,string,string,string][]
+] as [string, string, string, string][]
 
 export default function ServicesPage() {
   return (
@@ -27,10 +27,7 @@ export default function ServicesPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 2, background: 'var(--border)' }}>
             {SERVICES.map(([title, tag, desc, tech]) => (
-              <div key={title} style={{ background: 'var(--surface)', padding: '40px 32px', transition: 'background 0.2s', cursor: 'default' }}
-                onMouseEnter={e => (e.currentTarget.style.background = 'var(--accent-light)')}
-                onMouseLeave={e => (e.currentTarget.style.background = 'var(--surface)')}
-              >
+              <div key={title} className="service-card">
                 <div style={{ display: 'inline-block', padding: '4px 10px', background: 'var(--tag-bg)', color: 'var(--tag-text)', borderRadius: 99, fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 20 }}>{tag}</div>
                 <h2 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text)', marginBottom: 10, lineHeight: 1.4 }}>{title}</h2>
                 <p style={{ fontSize: '0.84rem', color: 'var(--muted)', lineHeight: 1.75 }}>{desc}</p>
