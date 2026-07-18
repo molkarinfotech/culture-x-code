@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion'
 
 const NAV_LINKS = [
   { href: '/services', label: 'Services' },
@@ -11,6 +11,9 @@ const NAV_LINKS = [
   { href: '/why-us',   label: 'Why Us' },
   { href: '/process',  label: 'Process' },
 ]
+
+const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1]
+const EASE_IN:  [number, number, number, number] = [0.4, 0, 1, 1]
 
 const SunIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -35,10 +38,8 @@ export default function NavWrapper() {
   const reduced = useReducedMotion()
   const menuRef = useRef<HTMLDivElement>(null)
 
-  // Close mobile menu on route change
   useEffect(() => { setMobileOpen(false) }, [pathname])
 
-  // Close on outside click
   useEffect(() => {
     if (!mobileOpen) return
     const handler = (e: MouseEvent) => {
@@ -50,7 +51,6 @@ export default function NavWrapper() {
     return () => document.removeEventListener('mousedown', handler)
   }, [mobileOpen])
 
-  // Close on Escape
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileOpen(false) }
     document.addEventListener('keydown', handler)
@@ -71,17 +71,17 @@ export default function NavWrapper() {
     try { localStorage.setItem('theme', next) } catch {}
   }
 
-  const drawerVariants = {
-    hidden: { opacity: 0, y: reduced ? 0 : -12, transition: { duration: 0.18, ease: [0.4, 0, 1, 1] } },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } },
+  const drawerVariants: Variants = {
+    hidden: { opacity: 0, y: reduced ? 0 : -12, transition: { duration: 0.18, ease: EASE_IN } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: EASE_OUT } },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, x: reduced ? 0 : -10 },
     visible: (i: number) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: reduced ? 0 : i * 0.05, duration: 0.24, ease: [0.16, 1, 0.3, 1] },
+      transition: { delay: reduced ? 0 : i * 0.05, duration: 0.24, ease: EASE_OUT },
     }),
   }
 
@@ -90,7 +90,6 @@ export default function NavWrapper() {
       <nav className="pf-nav" ref={menuRef}>
         <Link href="/" className="pf-nav-logo">molkarinfotech</Link>
 
-        {/* Desktop links */}
         <ul className="pf-nav-links">
           {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
@@ -105,7 +104,6 @@ export default function NavWrapper() {
           </button>
           <Link href="/contact" className="btn-primary pf-nav-cta">Start a Project</Link>
 
-          {/* Hamburger — mobile only */}
           <button
             className="hamburger"
             onClick={() => setMobileOpen(o => !o)}
@@ -128,7 +126,6 @@ export default function NavWrapper() {
         </div>
       </nav>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

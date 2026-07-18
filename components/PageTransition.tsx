@@ -1,10 +1,13 @@
 'use client'
 
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
-// ── Progress bar ────────────────────────────────────────────────────────────
+const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1]
+const EASE_IN:  [number, number, number, number] = [0.4, 0, 1, 1]
+
+// ── Progress bar ──────────────────────────────────────────────────────────────
 function NavProgress() {
   const pathname = usePathname()
   const [visible, setVisible] = useState(false)
@@ -13,11 +16,9 @@ function NavProgress() {
   const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
-    // Start progress on every pathname change
     setWidth(0)
     setVisible(true)
 
-    // Ramp to 85% quickly, then slow down
     let w = 0
     const tick = () => {
       w = w < 70 ? w + 4 : w < 85 ? w + 0.6 : w
@@ -26,7 +27,6 @@ function NavProgress() {
     }
     rafRef.current = requestAnimationFrame(tick)
 
-    // Complete after transition finishes (~500ms)
     timerRef.current = setTimeout(() => {
       setWidth(100)
       setTimeout(() => setVisible(false), 300)
@@ -58,8 +58,8 @@ function NavProgress() {
   )
 }
 
-// ── Page transition ──────────────────────────────────────────────────────────
-const makeVariants = (reduced: boolean) => ({
+// ── Page transition ────────────────────────────────────────────────────────────
+const makeVariants = (reduced: boolean): Variants => ({
   initial: reduced
     ? { opacity: 0 }
     : { opacity: 0, y: 20, filter: 'blur(4px)' },
@@ -69,11 +69,11 @@ const makeVariants = (reduced: boolean) => ({
     filter: 'blur(0px)',
     transition: reduced
       ? { duration: 0.15 }
-      : { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+      : { duration: 0.42, ease: EASE_OUT },
   },
   exit: reduced
     ? { opacity: 0, transition: { duration: 0.1 } }
-    : { opacity: 0, y: -10, filter: 'blur(2px)', transition: { duration: 0.2, ease: [0.4, 0, 1, 1] } },
+    : { opacity: 0, y: -10, filter: 'blur(2px)', transition: { duration: 0.2, ease: EASE_IN } },
 })
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
