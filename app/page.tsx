@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Bot, BrainCircuit, Building2, ChevronRight, ShieldCheck, Sparkles, Workflow, Rocket, Store, DatabaseZap, Layers3, CircleDollarSign, Cpu, PanelTop, Globe2, MessageSquareText } from 'lucide-react';
+import { ArrowRight, Bot, BrainCircuit, ChevronRight, ShieldCheck, Sparkles, Workflow, Rocket, Store, DatabaseZap, Layers3, Cpu, PanelTop, Globe2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -137,29 +137,17 @@ const packaging = [
   { name: 'AI commerce stack', tier: 'Advanced', price: 'Differentiated build', description: 'For brands that want differentiation through AI-assisted features, workflow automation, and tailored internal tools.', items: ['Everything in Revenue System', 'Chat, content workflows, media enhancement, or sourcing', 'Bespoke modules designed around the brand’s operations'] },
 ];
 
-const galleryItems = [
-  'Immersive brand storytelling',
-  'Interactive product journeys',
-  'AI-assisted customer experience',
-  'Streamlined operations',
-  'Trusted digital infrastructure',
-  'Premium visual systems',
+const businessReasons = [
+  { title: 'Faster launch cycles', body: 'You get a polished experience shipped quickly without sacrificing quality, flexibility, or long-term scalability.' },
+  { title: 'Clearer customer journeys', body: 'Your visitors move from discovery to checkout with less friction and stronger confidence in your brand.' },
+  { title: 'Less operational drag', body: 'Admins can manage content, orders, approvals, and campaigns without relying on scattered tools or manual busywork.' },
+  { title: 'A platform that grows', body: 'The system is built to expand with your offerings, traffic, and team as the business evolves.' },
 ];
 
-const flowNodes = [
-  { title: 'Main website', subtitle: 'Lead capture, storytelling, commerce', x: 18, y: 22 },
-  { title: 'CMS studio', subtitle: 'Publish pages and launch campaigns', x: 46, y: 22 },
-  { title: 'AI assistant', subtitle: 'Search, recommendations, support', x: 74, y: 22 },
-  { title: 'Admin workspace', subtitle: 'Users, approvals, workflows', x: 46, y: 76 },
-  { title: 'Analytics & CRM', subtitle: 'Signals, reporting, routing', x: 74, y: 76 },
-];
-
-const flowEdges = [
-  { from: { x: 26, y: 22 }, to: { x: 38, y: 22 } },
-  { from: { x: 54, y: 22 }, to: { x: 66, y: 22 } },
-  { from: { x: 46, y: 30 }, to: { x: 46, y: 62 } },
-  { from: { x: 74, y: 30 }, to: { x: 74, y: 62 } },
-  { from: { x: 54, y: 76 }, to: { x: 66, y: 76 } },
+const interactionLayers = [
+  { title: 'Front-end experience', body: 'Landing pages, product storytelling, shopping journeys, and conversion paths that feel premium and effortless.', accent: 'from-cyan-500/20 to-slate-900/70' },
+  { title: 'Growth engine', body: 'AI assistance, recommendations, payments, search, and retention tools that create smarter customer interactions.', accent: 'from-fuchsia-500/20 to-slate-900/70' },
+  { title: 'Operations layer', body: 'Content control, approvals, orders, analytics, and admin workflows that help teams move with confidence.', accent: 'from-emerald-500/20 to-slate-900/70' },
 ];
 
 export default function Home() {
@@ -322,12 +310,12 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Messaging angle</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">How to frame this commercially</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Why businesses choose this approach</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">The value they get from a partner who understands both brand and systems</h2>
             <ul className="mt-6 space-y-3 text-slate-300">
-              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Lead with “I build custom e-commerce systems for brands that need more than Shopify themes.”</li>
-              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Position this project as a live example of AI features, backend logic, and admin tooling working together.</li>
-              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Sell outcomes: faster operations, custom brand UX, better merchandising control, and conversion-focused checkout.</li>
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Higher conversion because the experience feels premium, intuitive, and easy to trust.</li>
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Less operational friction because teams can manage commerce and content from a unified system.</li>
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />More confidence to scale because the platform is designed for growth rather than short-term fixes.</li>
             </ul>
           </div>
         </div>
@@ -379,61 +367,46 @@ export default function Home() {
       <section id="offers" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
           <div className="mb-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Service packaging</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">How to turn this case study into a paid offer</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Business outcomes</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">What strong digital systems unlock for growing companies</h2>
           </div>
           <div className="grid gap-5 lg:grid-cols-3">
-            {packaging.map((plan) => (
-              <div key={plan.name} className={`rounded-[1.4rem] border border-white/10 p-6 ${plan.tier === 'Best fit' ? 'bg-gradient-to-br from-fuchsia-500/20 to-cyan-500/15' : 'bg-white/5'}`}>
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">{plan.tier}</p>
-                <p className="mt-4 text-2xl font-semibold text-white">{plan.name}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-400">{plan.description}</p>
-                <div className="mt-5 rounded-[1.1rem] border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-300">
-                  <p className="font-semibold text-white">{plan.price}</p>
-                  <ul className="mt-3 space-y-2">
-                    {plan.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2"><ChevronRight className="mt-1 text-fuchsia-300" size={14} />{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
-          <div className="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Video walkthrough</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">A short demo of the Ethnic Story experience</h2>
+            <div className="rounded-[1.4rem] border border-white/10 bg-gradient-to-br from-cyan-500/20 to-slate-900/70 p-6">
+              <p className="text-lg font-semibold text-white">Higher conversion</p>
+              <p className="mt-2 text-sm leading-7 text-slate-400">Premium experiences build trust quickly and reduce doubt at the exact moments that matter most.</p>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-slate-400">This walkthrough highlights the public-facing navigation, content flows, and admin screens that support the experience end to end.</p>
-          </div>
-          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/70 p-3">
-            <video controls playsInline preload="metadata" className="h-full w-full rounded-[1rem] bg-slate-950">
-              <source src="/demo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="rounded-[1.4rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/20 to-slate-900/70 p-6">
+              <p className="text-lg font-semibold text-white">Operational clarity</p>
+              <p className="mt-2 text-sm leading-7 text-slate-400">Teams can manage launches, content, orders, and approvals from one coherent system instead of scattered tools.</p>
+            </div>
+            <div className="rounded-[1.4rem] border border-white/10 bg-gradient-to-br from-emerald-500/20 to-slate-900/70 p-6">
+              <p className="text-lg font-semibold text-white">Confident growth</p>
+              <p className="mt-2 text-sm leading-7 text-slate-400">The foundation is flexible enough to support new products, channels, and customer expectations over time.</p>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
           <div className="mb-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Scrolling showcase</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">A premium digital experience, built to feel effortless and modern</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">System architecture</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">How the experience, intelligence, and operations work together</h2>
           </div>
-          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/70 p-4">
-            <motion.div initial={{ x: '-20%' }} animate={{ x: ['-20%', '-50%'] }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="flex gap-4 whitespace-nowrap">
-              {[...galleryItems, ...galleryItems].map((item, index) => (
-                <div key={`${item}-${index}`} className="w-64 rounded-[1.2rem] border border-white/10 bg-gradient-to-br from-fuchsia-500/20 to-cyan-500/20 px-5 py-6 text-lg font-semibold text-white">
-                  {item}
+          <div className="grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
+            {interactionLayers.map((layer, index) => (
+              <>
+                <div key={layer.title} className={`rounded-[1.35rem] border border-white/10 bg-gradient-to-br ${layer.accent} p-5`}>
+                  <p className="text-lg font-semibold text-white">{layer.title}</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">{layer.body}</p>
                 </div>
-              ))}
-            </motion.div>
+                {index < interactionLayers.length - 1 && (
+                  <div className="hidden lg:flex items-center justify-center text-cyan-300">
+                    <ArrowRight size={24} />
+                  </div>
+                )}
+              </>
+            ))}
           </div>
         </div>
       </section>
@@ -463,44 +436,24 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
           <div className="mb-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Motion flow diagram</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">How the main website and admin systems work together in motion</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">System architecture</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">A simple view of how the experience, intelligence, and operations connect</h2>
           </div>
-          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/80 p-6">
-            <motion.svg viewBox="0 0 100 100" className="h-72 w-full" initial={{ opacity: 0.8 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-              <defs>
-                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(244,114,182,0.95)" />
-                  <stop offset="100%" stopColor="rgba(34,211,238,0.95)" />
-                </linearGradient>
-              </defs>
-              {flowEdges.map((edge, index) => (
-                <motion.path
-                  key={`${edge.from.x}-${edge.from.y}-${index}`}
-                  d={`M ${edge.from.x} ${edge.from.y} C ${(edge.from.x + edge.to.x) / 2} ${edge.from.y - 12}, ${(edge.from.x + edge.to.x) / 2} ${edge.to.y + 12}, ${edge.to.x} ${edge.to.y}`}
-                  fill="none"
-                  stroke="url(#flowGradient)"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0, opacity: 0.25 }}
-                  animate={{ pathLength: 1, opacity: 0.85 }}
-                  transition={{ duration: 1, delay: index * 0.18 }}
-                />
-              ))}
-              {flowNodes.map((node, index) => (
-                <motion.g
-                  key={node.title}
-                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.16 }}
-                >
-                  <rect x={node.x - 12} y={node.y - 10} width="24" height="20" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
-                  <circle cx={node.x - 6} cy={node.y} r="1.4" fill="#f472b6" />
-                  <text x={node.x - 2} y={node.y - 1.5} textAnchor="middle" fill="#f8fafc" fontSize="2.4" fontWeight="600">{node.title}</text>
-                  <text x={node.x - 2} y={node.y + 3.2} textAnchor="middle" fill="#94a3b8" fontSize="1.6">{node.subtitle}</text>
-                </motion.g>
-              ))}
-            </motion.svg>
+          <div className="rounded-[1.6rem] border border-white/10 bg-slate-950/80 p-6">
+            <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr]">
+              <div className="rounded-[1.25rem] border border-white/10 bg-white/5 p-5">
+                <p className="text-lg font-semibold text-white">Front-end experience</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">Landing pages, storytelling, product journeys, and conversion flows that feel premium and intuitive.</p>
+              </div>
+              <div className="rounded-[1.25rem] border border-white/10 bg-white/5 p-5">
+                <p className="text-lg font-semibold text-white">Growth engine</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">AI assistance, search, recommendations, payments, and retention tools that create smarter customer interactions.</p>
+              </div>
+              <div className="rounded-[1.25rem] border border-white/10 bg-white/5 p-5">
+                <p className="text-lg font-semibold text-white">Operations layer</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">Content control, approvals, orders, analytics, and admin workflows that keep teams aligned and efficient.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
