@@ -369,14 +369,26 @@ export default function PortfolioPage() {
         }
         .cs-admin-list {
           list-style: none; display: flex; flex-direction: column; gap: 8px;
+          margin-bottom: 28px;
         }
         .cs-admin-list li {
           font-size: 0.84rem; opacity: 0.85; padding-left: 16px; position: relative;
         }
         .cs-admin-list li::before {
-          content: '→'; position: absolute; left: 0;
+          content: '\u2192'; position: absolute; left: 0;
           font-size: 0.75rem;
         }
+        .cs-arch-link {
+          display: inline-flex; align-items: center; gap: 7px;
+          font-size: 0.84rem; font-weight: 600;
+          color: var(--bg); opacity: 0.9;
+          text-decoration: none;
+          border: 1px solid rgba(255,255,255,0.35);
+          padding: 9px 18px; border-radius: var(--radius);
+          transition: opacity 0.2s, background 0.2s, gap 0.2s;
+          background: rgba(255,255,255,0.1);
+        }
+        .cs-arch-link:hover { opacity: 1; background: rgba(255,255,255,0.18); gap: 11px; }
 
         /* ── WHY US ── */
         .why-section { padding: 100px 60px; }
@@ -474,7 +486,7 @@ export default function PortfolioPage() {
           .services-grid { grid-template-columns: 1fr; }
           .cs-story { grid-template-columns: 1fr; gap: 40px; }
           .cs-features { grid-template-columns: 1fr; }
-          .cs-admin-spotlight { grid-template-columns: 1fr; gap: 28px; }
+          .cs-admin-spotlight { grid-template-columns: 1fr; gap: 28px; padding: 36px 28px; }
           .why-grid { grid-template-columns: 1fr; }
           .process-grid { grid-template-columns: repeat(2, 1fr); }
           .cta-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -725,6 +737,9 @@ export default function PortfolioPage() {
                 <li>Analytics dashboard — revenue, orders, top products</li>
                 <li>Role-based access control — admin vs. customer at database level</li>
               </ul>
+              <a href="/architecture" className="cs-arch-link">
+                Explore the full system architecture &rarr;
+              </a>
             </div>
           </div>
         </div>
