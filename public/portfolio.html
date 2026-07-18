@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>molkarinfotech — Portfolio</title>
-  <meta name="description" content="Full-stack web development portfolio by molkarinfotech. Featuring Ethnic Story — an AI-generated Indian ethnic clothing e-commerce platform." />
+  <meta name="description" content="Full-stack web development portfolio by molkarinfotech. We design and build fast, scalable e-commerce platforms and web applications." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -22,6 +22,8 @@
       --muted: #888888;
       --tag-bg: #1e1a14;
       --tag-text: #c9a96e;
+      --font-body: 'DM Sans', sans-serif;
+      --font-display: 'Fraunces', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -29,7 +31,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
@@ -47,15 +49,13 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .nav-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 1.25rem;
       color: var(--accent);
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
-
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
       color: var(--muted);
@@ -81,7 +81,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '';
       position: absolute;
@@ -91,7 +90,6 @@
       background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .hero-eyebrow {
       font-size: 0.75rem;
       font-weight: 600;
@@ -100,9 +98,8 @@
       color: var(--accent);
       margin-bottom: 24px;
     }
-
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 700;
       line-height: 1.08;
@@ -110,9 +107,7 @@
       margin-bottom: 28px;
       max-width: 900px;
     }
-
     .hero h1 span { color: var(--accent); }
-
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--muted);
@@ -120,13 +115,7 @@
       margin-bottom: 48px;
       line-height: 1.7;
     }
-
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
     .btn-primary {
       padding: 14px 32px;
@@ -141,9 +130,9 @@
       text-decoration: none;
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
+      font-family: var(--font-body);
     }
     .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-
     .btn-secondary {
       padding: 14px 32px;
       background: transparent;
@@ -157,6 +146,7 @@
       text-decoration: none;
       cursor: pointer;
       transition: border-color 0.2s, transform 0.15s;
+      font-family: var(--font-body);
     }
     .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
 
@@ -171,9 +161,8 @@
       gap: 20px;
       text-align: center;
     }
-
     .stat-item .stat-number {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--accent);
@@ -189,7 +178,6 @@
 
     /* SECTIONS */
     section { padding: 100px 60px; }
-
     .section-eyebrow {
       font-size: 0.72rem;
       font-weight: 600;
@@ -198,16 +186,14 @@
       color: var(--accent);
       margin-bottom: 16px;
     }
-
     .section-title {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 20px;
       max-width: 640px;
     }
-
     .section-desc {
       color: var(--muted);
       font-size: 1rem;
@@ -223,35 +209,23 @@
       gap: 2px;
       background: var(--border);
     }
-
     .service-card {
       background: var(--surface);
       padding: 44px 36px;
       transition: background 0.2s;
     }
     .service-card:hover { background: var(--surface2); }
-
     .service-icon {
-      font-size: 1.8rem;
+      width: 32px; height: 32px;
       margin-bottom: 20px;
+      color: var(--accent);
     }
-
-    .service-card h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .service-card p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
+    .service-icon svg { width: 100%; height: 100%; }
+    .service-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--text); }
+    .service-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
 
     /* CASE STUDY */
     .case-study-section { background: var(--surface); }
-
     .case-study-header {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -259,30 +233,10 @@
       align-items: start;
       margin-bottom: 80px;
     }
-
-    .case-study-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .meta-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    .meta-value {
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
+    .case-study-meta { display: flex; flex-direction: column; gap: 24px; }
+    .meta-row { display: flex; flex-direction: column; gap: 6px; }
+    .meta-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .meta-value { font-size: 0.95rem; color: var(--text); }
     .cs-badge {
       display: inline-block;
       padding: 5px 12px;
@@ -296,51 +250,7 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
-    /* CASE STUDY FEATURE GRID */
-    .cs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--border);
-      margin-bottom: 2px;
-    }
-
-    .cs-card {
-      background: var(--bg);
-      padding: 40px 36px;
-    }
-
-    .cs-card-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: rgba(201,169,110,0.15);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .cs-card h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .cs-card p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* TECH STACK */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 40px;
-    }
-
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
     .tech-tag {
       padding: 8px 16px;
       background: var(--tag-bg);
@@ -351,6 +261,24 @@
       font-weight: 500;
       letter-spacing: 0.04em;
     }
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-bottom: 2px;
+    }
+    .cs-card { background: var(--bg); padding: 40px 36px; }
+    .cs-card-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgba(201,169,110,0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .cs-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+    .cs-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
 
     /* TIMELINE */
     .timeline {
@@ -361,72 +289,25 @@
       flex-direction: column;
       gap: 48px;
     }
-
-    .timeline-item {
-      position: relative;
-    }
-
+    .timeline-item { position: relative; }
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -38px;
-      top: 6px;
+      left: -38px; top: 6px;
       width: 10px; height: 10px;
       border-radius: 50%;
       background: var(--accent);
       border: 2px solid var(--bg);
       box-shadow: 0 0 0 1px var(--accent);
     }
-
-    .timeline-phase {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .timeline-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .timeline-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
+    .timeline-phase { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .timeline-title { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .timeline-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
 
     /* RESULTS */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--border);
-    }
-
-    .result-card {
-      background: var(--surface2);
-      padding: 44px 36px;
-      text-align: center;
-    }
-
-    .result-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .result-label {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .result-card { background: var(--surface2); text-align: left; padding: 28px 32px; margin-bottom: 2px; }
+    .result-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .result-text { font-size: 0.9rem; color: var(--muted); }
 
     /* PROCESS */
     .process-grid {
@@ -435,20 +316,14 @@
       gap: 2px;
       background: var(--border);
     }
-
-    .process-step {
-      background: var(--surface);
-      padding: 36px 28px;
-    }
-
+    .process-step { background: var(--surface); padding: 36px 28px; }
     .step-num {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: 1.8rem;
       color: rgba(201,169,110,0.3);
       font-weight: 700;
       margin-bottom: 16px;
     }
-
     .process-step h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
     .process-step p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
 
@@ -459,7 +334,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .cta-section::before {
       content: '';
       position: absolute;
@@ -469,15 +343,13 @@
       background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .cta-section h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: var(--font-display);
       font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 700;
       margin-bottom: 24px;
       line-height: 1.1;
     }
-
     .cta-section p {
       font-size: 1rem;
       color: var(--muted);
@@ -494,33 +366,13 @@
       justify-content: space-between;
       align-items: center;
     }
-
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--accent);
-    }
-
-    .footer-copy {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
+    .footer-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
     .footer-links { display: flex; gap: 28px; }
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-links a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
 
-    /* DIVIDER */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 60px;
-    }
+    .divider { height: 1px; background: var(--border); margin: 0 60px; }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -531,11 +383,11 @@
       .services-grid { grid-template-columns: 1fr; }
       .case-study-header { grid-template-columns: 1fr; gap: 40px; }
       .cs-grid { grid-template-columns: 1fr; }
-      .results-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; gap: 20px; text-align: center; }
       .footer-links { flex-wrap: wrap; justify-content: center; }
       .divider { margin: 0 24px; }
+      .cs-timeline-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -549,7 +401,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="/portfolio" class="active">Next.js Route →</a></li>
+      <li><a href="/architecture" class="active">Architecture</a></li>
     </ul>
     <a href="#contact" class="btn-primary" style="font-size:0.78rem;padding:10px 22px;">Start a Project</a>
   </nav>
@@ -558,10 +410,10 @@
   <section class="hero">
     <p class="hero-eyebrow">Full-Stack Web Development &amp; Digital Experiences</p>
     <h1>We build <span>exceptional</span><br/>digital products</h1>
-    <p class="hero-sub">From e-commerce platforms to AI-powered web applications — we design and develop fast, scalable, and beautiful digital experiences that convert.</p>
+    <p class="hero-sub">From e-commerce platforms to complex web applications &mdash; we design and develop fast, scalable, and beautiful digital experiences that convert.</p>
     <div class="hero-cta">
       <a href="#work" class="btn-primary">View Our Work</a>
-      <a href="/portfolio" class="btn-secondary">View Next.js Route →</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
     </div>
   </section>
 
@@ -577,14 +429,69 @@
   <section id="services">
     <p class="section-eyebrow">What We Do</p>
     <h2 class="section-title">End-to-end digital solutions</h2>
-    <p class="section-desc">We handle everything from strategy and design through to deployment and beyond — so you can focus on your business.</p>
+    <p class="section-desc">We handle everything from strategy and design through to deployment and beyond &mdash; so you can focus on your business.</p>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon">⚡</div><h3>E-Commerce Development</h3><p>Custom storefronts with Stripe payments, inventory management, admin portals, and order fulfilment pipelines built for scale.</p></div>
-      <div class="service-card"><div class="service-icon">🤖</div><h3>AI Integration</h3><p>Embed AI-powered features into your product — from automated content generation and image analysis to intelligent search and recommendations.</p></div>
-      <div class="service-card"><div class="service-icon">🎨</div><h3>UI / UX Design</h3><p>Pixel-perfect interfaces designed with conversion in mind. Clean, modern aesthetics with Framer Motion animations and responsive layouts.</p></div>
-      <div class="service-card"><div class="service-icon">🗄️</div><h3>Backend &amp; Database</h3><p>Supabase, PostgreSQL, and serverless API architecture. Secure auth flows, real-time data, and reliable infrastructure on Vercel.</p></div>
-      <div class="service-card"><div class="service-icon">📱</div><h3>Next.js Applications</h3><p>Server-side rendered, SEO-optimised web apps built with Next.js, React 19, and TypeScript. Fast by default, beautiful by design.</p></div>
-      <div class="service-card"><div class="service-icon">🚀</div><h3>Launch &amp; Scale</h3><p>CI/CD pipelines, Vercel deployment, domain configuration, and ongoing technical support to keep your product running smoothly.</p></div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </div>
+        <h3>E-Commerce Development</h3>
+        <p>Custom storefronts with Stripe payments, inventory management, admin portals, and order fulfilment pipelines built for scale.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3>Custom Web Applications</h3>
+        <p>Bespoke web apps built with Next.js, React 19, and TypeScript. Complex requirements, clean implementations, reliable results.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <h3>UI / UX Design</h3>
+        <p>Pixel-perfect interfaces designed with conversion in mind. Clean, modern aesthetics with Framer Motion animations and responsive layouts.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          </svg>
+        </div>
+        <h3>Backend &amp; Database</h3>
+        <p>Supabase, PostgreSQL, and serverless API architecture. Secure auth flows, real-time data, and reliable infrastructure on Vercel.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <h3>Responsive &amp; Mobile</h3>
+        <p>Every project is built mobile-first. Fluid layouts, optimised touch interactions, and tested across all screen sizes and devices.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3>Launch &amp; Scale</h3>
+        <p>CI/CD pipelines, Vercel deployment, domain configuration, and ongoing technical support to keep your product running smoothly.</p>
+      </div>
+
     </div>
   </section>
 
@@ -593,50 +500,57 @@
   <!-- CASE STUDY -->
   <section id="work" class="case-study-section">
     <p class="section-eyebrow">Featured Case Study</p>
-    <h2 class="section-title">Ethnic Story — AI-Generated E-Commerce Platform</h2>
-    <p class="section-desc">A full-scale Indian ethnic clothing store, designed and built entirely with AI-assisted development. From concept to deployment in record time.</p>
+    <h2 class="section-title">Ethnic Story &mdash; Full-Stack E-Commerce Platform</h2>
+    <p class="section-desc">A full-scale Indian ethnic clothing store. From concept to production deployment, built to last.</p>
     <div class="case-study-header">
       <div>
-        <span class="cs-badge">Case Study · 2026</span>
+        <span class="cs-badge">Case Study &middot; 2026</span>
         <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:24px;">Ethnic Story is a modern Indian ethnic clothing e-commerce platform built to serve a new generation of fashion-forward shoppers who want culturally rich designs with a contemporary edge.</p>
-        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;">The project demonstrates what’s possible when deep technical expertise meets AI tooling: a production-ready, full-stack e-commerce site with advanced features delivered at startup speed.</p>
+        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;">The project required a robust, production-grade stack: real payment flows, secure user authentication, inventory management, and a purpose-built admin portal &mdash; all delivered on time and on budget.</p>
         <div class="tech-stack">
-          <span class="tech-tag">Next.js 16</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">Stripe</span><span class="tech-tag">Vercel</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Framer Motion</span><span class="tech-tag">AI Image Gen</span><span class="tech-tag">Google Vision API</span>
+          <span class="tech-tag">Next.js 16</span>
+          <span class="tech-tag">React 19</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Supabase</span>
+          <span class="tech-tag">Stripe</span>
+          <span class="tech-tag">Vercel</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Framer Motion</span>
+          <span class="tech-tag">Google Vision API</span>
+          <span class="tech-tag">PostgreSQL</span>
         </div>
       </div>
       <div class="case-study-meta">
         <div class="meta-row"><span class="meta-label">Client</span><span class="meta-value">Ethnic Story</span></div>
-        <div class="meta-row"><span class="meta-label">Category</span><span class="meta-value">E-Commerce · Fashion · Indian Ethnic Wear</span></div>
-        <div class="meta-row"><span class="meta-label">Deliverables</span><span class="meta-value">Full-Stack Web App, Admin Portal, Payment Integration, AI Features</span></div>
+        <div class="meta-row"><span class="meta-label">Category</span><span class="meta-value">E-Commerce &middot; Fashion &middot; Indian Ethnic Wear</span></div>
+        <div class="meta-row"><span class="meta-label">Deliverables</span><span class="meta-value">Full-Stack Web App, Admin Portal, Payment Integration, Vision API</span></div>
         <div class="meta-row"><span class="meta-label">Year</span><span class="meta-value">2026</span></div>
-        <div class="meta-row"><span class="meta-label">Status</span><span class="meta-value" style="color:#4ade80;">✓ Live &amp; Production</span></div>
+        <div class="meta-row"><span class="meta-label">Status</span><span class="meta-value" style="color:#4ade80;">&#10003; Live &amp; Production</span></div>
       </div>
     </div>
     <div class="cs-grid">
-      <div class="cs-card"><div class="cs-card-num">01</div><h4>AI-Powered Product System</h4><p>Integrated Google Vision API for automated product image analysis, combined with AI-generated product descriptions and category tagging. Reduces manual content work by 80%.</p></div>
-      <div class="cs-card"><div class="cs-card-num">02</div><h4>Full E-Commerce Pipeline</h4><p>Stripe payment processing with webhooks, real-time order confirmation emails, inventory tracking, and a full admin portal for product and order management.</p></div>
-      <div class="cs-card"><div class="cs-card-num">03</div><h4>Authentication &amp; User Accounts</h4><p>Supabase Auth with secure session management, user profiles, order history, and role-based access control for admin vs. customer views.</p></div>
-      <div class="cs-card"><div class="cs-card-num">04</div><h4>Performance &amp; SEO</h4><p>Server-side rendering via Next.js App Router, optimised images, and Vercel Edge Network delivery. PageSpeed scores optimised for organic discovery.</p></div>
+      <div class="cs-card"><div class="cs-card-num">01</div><h4>Smart Product Management</h4><p>Google Vision API integration for automated image tagging and categorisation. Paired with a structured admin portal for full catalogue control.</p></div>
+      <div class="cs-card"><div class="cs-card-num">02</div><h4>Full E-Commerce Pipeline</h4><p>Stripe payment processing with webhooks, real-time order confirmation, inventory tracking, and a complete admin portal for order management.</p></div>
+      <div class="cs-card"><div class="cs-card-num">03</div><h4>Authentication &amp; Accounts</h4><p>Supabase Auth with secure session management, user profiles, order history, and role-based access control separating admin and customer views.</p></div>
+      <div class="cs-card"><div class="cs-card-num">04</div><h4>Performance &amp; SEO</h4><p>Server-side rendering via Next.js App Router, optimised images with lazy loading, and Vercel Edge Network delivery for fast organic discovery.</p></div>
     </div>
-    <div style="margin-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;">
+    <div class="cs-timeline-grid" style="margin-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;">
       <div>
         <p class="section-eyebrow">Build Timeline</p>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:40px;">From idea to launch</h3>
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:40px;">From idea to launch</h3>
         <div class="timeline">
           <div class="timeline-item"><div class="timeline-phase">Phase 01</div><div class="timeline-title">Discovery &amp; Architecture</div><div class="timeline-desc">Requirements scoping, database schema design (Supabase/PostgreSQL), and Next.js project scaffolding with TypeScript configuration.</div></div>
           <div class="timeline-item"><div class="timeline-phase">Phase 02</div><div class="timeline-title">Core Platform Build</div><div class="timeline-desc">Product catalogue, shopping cart, checkout flow, and Stripe integration. Admin portal with inventory management and order dashboard.</div></div>
-          <div class="timeline-item"><div class="timeline-phase">Phase 03</div><div class="timeline-title">AI Feature Integration</div><div class="timeline-desc">Google Vision API for product analysis, AI image generation pipeline, and automated content workflows for scaling the product catalogue.</div></div>
+          <div class="timeline-item"><div class="timeline-phase">Phase 03</div><div class="timeline-title">Vision API Integration</div><div class="timeline-desc">Google Vision API for automated product image tagging and category mapping to streamline catalogue management at scale.</div></div>
           <div class="timeline-item"><div class="timeline-phase">Phase 04</div><div class="timeline-title">QA, Deploy &amp; Launch</div><div class="timeline-desc">End-to-end testing, Vercel deployment with CI/CD, domain configuration, and production monitoring setup.</div></div>
         </div>
       </div>
       <div>
         <p class="section-eyebrow">Key Outcomes</p>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:40px;">What we delivered</h3>
-        <div class="results-grid" style="grid-template-columns:1fr;">
-          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Production-Ready</div><div style="font-size:0.9rem;color:var(--muted);">Fully deployed on Vercel with live Stripe payments, real order flows, and authenticated user accounts from day one.</div></div>
-          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">AI-Accelerated</div><div style="font-size:0.9rem;color:var(--muted);">AI-assisted development workflow reduced build time significantly while maintaining production-grade code quality.</div></div>
-          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Scalable Architecture</div><div style="font-size:0.9rem;color:var(--muted);">Built on a modern, scalable stack ready to handle thousands of products, users, and transactions without architectural changes.</div></div>
-        </div>
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:40px;">What we delivered</h3>
+        <div class="result-card"><div class="result-label">Production-Ready</div><div class="result-text">Fully deployed on Vercel with live Stripe payments, real order flows, and authenticated user accounts from day one.</div></div>
+        <div class="result-card"><div class="result-label">Delivered on Time</div><div class="result-text">Clear phased milestones and weekly check-ins kept the project on track from kickoff to launch without scope creep.</div></div>
+        <div class="result-card"><div class="result-label">Scalable Architecture</div><div class="result-text">Built on a solid, maintainable stack ready to handle growth in products, users, and transactions without major rework.</div></div>
       </div>
     </div>
   </section>
@@ -647,7 +561,7 @@
     <h2 class="section-title">Our process</h2>
     <p class="section-desc">A clear, collaborative workflow that keeps projects on track and clients informed at every step.</p>
     <div class="process-grid">
-      <div class="process-step"><div class="step-num">01</div><h4>Discovery</h4><p>We start by understanding your goals, users, and technical requirements. Clear scope = no surprises later.</p></div>
+      <div class="process-step"><div class="step-num">01</div><h4>Discovery</h4><p>We start by understanding your goals, users, and technical requirements. Clear scope means no surprises later.</p></div>
       <div class="process-step"><div class="step-num">02</div><h4>Design &amp; Plan</h4><p>UI mockups, architecture decisions, and a project timeline agreed before a single line of code is written.</p></div>
       <div class="process-step"><div class="step-num">03</div><h4>Build &amp; Iterate</h4><p>Rapid development with regular check-ins. You see progress weekly, not just at the end.</p></div>
       <div class="process-step"><div class="step-num">04</div><h4>Launch &amp; Support</h4><p>Smooth deployment, handover documentation, and ongoing support so you're never left in the dark.</p></div>
@@ -656,25 +570,25 @@
 
   <!-- CTA -->
   <section id="contact" class="cta-section">
-    <p class="section-eyebrow">Let’s Work Together</p>
+    <p class="section-eyebrow">Let&rsquo;s Work Together</p>
     <h2>Ready to build<br/>something great?</h2>
-    <p>Tell us about your project. We’ll get back to you within 24 hours with a clear plan and honest advice.</p>
+    <p>Tell us about your project. We&rsquo;ll get back to you within 24 hours with a clear plan and honest advice.</p>
     <div class="hero-cta">
       <a href="mailto:molkarinfotech@gmail.com" class="btn-primary">molkarinfotech@gmail.com</a>
-      <a href="https://github.com/molkarinfotech" class="btn-secondary" target="_blank">View GitHub</a>
+      <a href="https://github.com/molkarinfotech" class="btn-secondary" target="_blank" rel="noopener noreferrer">View GitHub</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">molkarinfotech</div>
-    <div class="footer-copy">© 2026 molkarinfotech. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 molkarinfotech. All rights reserved.</div>
     <div class="footer-links">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#process">Process</a>
+      <a href="/architecture">Architecture</a>
       <a href="mailto:molkarinfotech@gmail.com">Contact</a>
-      <a href="/portfolio">Next.js Route</a>
     </div>
   </footer>
 
