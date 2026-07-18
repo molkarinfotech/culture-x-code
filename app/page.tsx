@@ -230,6 +230,24 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+          <div className="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Video walkthrough</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white">A short demo of the Ethnic Story experience</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-7 text-slate-400">This walkthrough highlights the public-facing navigation, content flows, and admin screens that support the experience end to end.</p>
+          </div>
+          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/70 p-3">
+            <video controls playsInline preload="metadata" className="h-full w-full rounded-[1rem] bg-slate-950">
+              <source src="/demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
           <div className="mb-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Feature intelligence</p>
             <h2 className="mt-3 text-3xl font-semibold text-white">The capabilities that make a difference in real-world use</h2>
@@ -354,35 +372,41 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Motion flow diagram</p>
             <h2 className="mt-3 text-3xl font-semibold text-white">How the main website and admin systems work together in motion</h2>
           </div>
-          <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/80 p-6">
-            <motion.svg viewBox="0 0 100 100" className="h-72 w-full">
+          <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/80 p-6">
+            <motion.svg viewBox="0 0 100 100" className="h-72 w-full" initial={{ opacity: 0.8 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+              <defs>
+                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(244,114,182,0.95)" />
+                  <stop offset="100%" stopColor="rgba(34,211,238,0.95)" />
+                </linearGradient>
+              </defs>
               {flowEdges.map((edge, index) => (
                 <motion.path
                   key={`${edge.from.x}-${edge.from.y}-${index}`}
                   d={`M ${edge.from.x} ${edge.from.y} C ${(edge.from.x + edge.to.x) / 2} ${edge.from.y - 12}, ${(edge.from.x + edge.to.x) / 2} ${edge.to.y + 12}, ${edge.to.x} ${edge.to.y}`}
                   fill="none"
-                  stroke="rgba(255,255,255,0.22)"
+                  stroke="url(#flowGradient)"
                   strokeWidth="1.2"
                   strokeLinecap="round"
-                  initial={{ pathLength: 0, opacity: 0.3 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.2, delay: index * 0.18 }}
+                  initial={{ pathLength: 0, opacity: 0.25 }}
+                  animate={{ pathLength: 1, opacity: 0.85 }}
+                  transition={{ duration: 1, delay: index * 0.18 }}
                 />
               ))}
+              {flowNodes.map((node, index) => (
+                <motion.g
+                  key={node.title}
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.16 }}
+                >
+                  <rect x={node.x - 12} y={node.y - 10} width="24" height="20" rx="4" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+                  <circle cx={node.x - 6} cy={node.y} r="1.4" fill="#f472b6" />
+                  <text x={node.x - 2} y={node.y - 1.5} textAnchor="middle" fill="#f8fafc" fontSize="2.4" fontWeight="600">{node.title}</text>
+                  <text x={node.x - 2} y={node.y + 3.2} textAnchor="middle" fill="#94a3b8" fontSize="1.6">{node.subtitle}</text>
+                </motion.g>
+              ))}
             </motion.svg>
-            {flowNodes.map((node, index) => (
-              <motion.div
-                key={node.title}
-                className="absolute w-40 rounded-[1.2rem] border border-white/10 bg-white/10 p-4 backdrop-blur"
-                style={{ left: `${node.x}%`, top: `${node.y}%`, transform: 'translate(-50%, -50%)' }}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.16 }}
-              >
-                <p className="text-sm font-semibold text-white">{node.title}</p>
-                <p className="mt-2 text-xs leading-6 text-slate-400">{node.subtitle}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
