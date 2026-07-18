@@ -38,7 +38,7 @@ const portalFeatures = [
   'API integrations with CRM, ERP, and marketing stacks.',
 ];
 
-const industries = ['Arts & culture', 'Education & research', 'Retail & lifestyle', 'Health & wellness', 'SaaS & B2B services'];
+const industries = ['Professional services', 'SaaS & B2B', 'Healthcare & wellness', 'Retail & e-commerce', 'Hospitality & travel', 'Finance & fintech', 'Education & training', 'Real estate & property'];
 
 const process = [
   'Discover the business outcome and brand story.',
@@ -50,11 +50,11 @@ const process = [
 const useCaseHighlights = [
   {
     title: 'Narrative-first website experience',
-    description: 'A premium storytelling experience that turns cultural depth into trust, discovery, and higher-quality leads.',
+    description: 'A premium storytelling experience that turns complex offerings into clear, persuasive journeys for new and returning visitors.',
   },
   {
     title: 'AI-assisted discovery',
-    description: 'Search, recommendations, and content surfacing that help visitors find the right story, offer, or action quickly.',
+    description: 'Search, recommendations, and content surfacing that help visitors find the right service, product, or next step quickly.',
   },
   {
     title: 'Operational control center',
@@ -62,14 +62,14 @@ const useCaseHighlights = [
   },
   {
     title: 'Scalable growth architecture',
-    description: 'A foundation built for SEO, integrations, analytics, and future feature expansion as the brand evolves.',
+    description: 'A foundation built for SEO, integrations, analytics, and future feature expansion as the business evolves.',
   },
 ];
 
 const capabilities = [
   'Strategy-led digital product design grounded in business outcomes.',
   'Full-stack build capability across frontends, backends, AI layers, and operations.',
-  'Premium UX craft for brands that need to feel both cultural and credible.',
+  'Premium UX craft for brands that need to feel polished, credible, and commercially effective.',
   'Secure, scalable systems designed for growth rather than short-term demos.',
 ];
 
@@ -82,8 +82,8 @@ const differentiators = [
 
 const featurePanels = [
   {
-    title: 'Cultural intelligence',
-    body: 'We translate heritage, identity, and audience nuance into experiences that feel authentic, premium, and highly relevant.',
+    title: 'Audience intelligence',
+    body: 'We translate brand positioning and customer behavior into experiences that feel relevant, premium, and conversion-ready.',
     accent: 'from-fuchsia-500/25 to-cyan-500/20',
   },
   {
@@ -112,6 +112,22 @@ const galleryItems = [
   'Premium visual systems',
 ];
 
+const flowNodes = [
+  { title: 'Main website', subtitle: 'Lead capture, storytelling, commerce', x: 18, y: 22 },
+  { title: 'CMS studio', subtitle: 'Publish pages and launch campaigns', x: 46, y: 22 },
+  { title: 'AI assistant', subtitle: 'Search, recommendations, support', x: 74, y: 22 },
+  { title: 'Admin workspace', subtitle: 'Users, approvals, workflows', x: 46, y: 76 },
+  { title: 'Analytics & CRM', subtitle: 'Signals, reporting, routing', x: 74, y: 76 },
+];
+
+const flowEdges = [
+  { from: { x: 26, y: 22 }, to: { x: 38, y: 22 } },
+  { from: { x: 54, y: 22 }, to: { x: 66, y: 22 } },
+  { from: { x: 46, y: 30 }, to: { x: 46, y: 62 } },
+  { from: { x: 74, y: 30 }, to: { x: 74, y: 62 } },
+  { from: { x: 54, y: 76 }, to: { x: 66, y: 76 } },
+];
+
 export default function Home() {
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver: zodResolver(formSchema) });
 
@@ -128,7 +144,7 @@ export default function Home() {
             <div className="rounded-full bg-fuchsia-500/20 p-2 text-fuchsia-300"><Sparkles size={18} /></div>
             <div>
               <p className="text-sm font-semibold tracking-[0.24em] text-slate-200 uppercase">Culture x Code</p>
-              <p className="text-xs text-slate-400">cultural-tech agency</p>
+              <p className="text-xs text-slate-400">digital product studio</p>
             </div>
           </div>
           <a href="#contact" className="rounded-full border border-fuchsia-500/40 bg-fuchsia-500/10 px-4 py-2 text-sm font-medium text-fuchsia-200 transition hover:bg-fuchsia-500/20">Book a strategy call</a>
@@ -137,17 +153,17 @@ export default function Home() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="mb-4 inline-flex items-center rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-sm font-medium text-cyan-200">
-              <Cpu className="mr-2" size={16} /> Premium digital products for cultural and emerging brands
+              <Cpu className="mr-2" size={16} /> Premium digital products for ambitious brands
             </p>
             <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl">
-              Ethnic Story AI Gen is more than a website — it is a growth engine for cultural brands.
+              Your business, elevated with digital experiences that work as hard as you do.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-slate-300 sm:text-xl">
-              We combine premium storytelling, AI-powered discovery, secure operations, and scalable infrastructure so your platform can attract attention, convert visitors, and run like a modern business.
+              From high-converting websites to intelligent product experiences, we build digital systems that put your business in your hands — clear, modern, and ready to grow.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-fuchsia-500 px-5 py-3 font-semibold text-white transition hover:bg-fuchsia-400">Start a project <ArrowRight size={18} /></a>
-              <a href="#case-study" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:bg-white/10">See Ethnic Story AI Gen</a>
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-fuchsia-500 px-5 py-3 font-semibold text-white transition hover:bg-fuchsia-400">Let’s build your growth engine <ArrowRight size={18} /></a>
+              <a href="#case-study" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:bg-white/10">See how it works</a>
             </div>
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-slate-400">
               <span className="rounded-full border border-white/10 px-3 py-1">App Router</span>
@@ -188,7 +204,7 @@ export default function Home() {
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Case study</p>
               <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Ethnic Story AI Gen</h2>
-              <p className="mt-4 text-lg text-slate-300">A cultural-tech platform designed to do more than impress visitors. It needed to educate, convert, personalize, and give internal teams a smooth way to manage growth.</p>
+              <p className="mt-4 text-lg text-slate-300">A featured use case showing how we combine storytelling, systems design, and AI-enabled product thinking to create platforms that help businesses move faster, convert better, and operate with more confidence.</p>
               <div className="mt-6 space-y-3 text-sm text-slate-300">
                 <div className="flex items-start gap-3"><CircleDollarSign className="mt-1 text-fuchsia-300" size={18} /> Built a conversion-first narrative that turns curiosity into qualified inquiries and deeper engagement.</div>
                 <div className="flex items-start gap-3"><MessageSquareText className="mt-1 text-fuchsia-300" size={18} /> Added AI-assisted discovery flows so visitors can explore complex offerings without friction.</div>
@@ -198,7 +214,7 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-2">
               {[
                 ['Launch-ready experience', 'Fast, elegant storytelling with a premium visual system and clear conversion paths.'],
-                ['AI-powered discovery', 'Intelligent search and content recommendations that make rich cultural experiences easier to navigate.'],
+                ['AI-powered discovery', 'Intelligent search and content recommendations that make complex offerings easier to navigate.'],
                 ['Secure admin operations', 'Role-based tools for internal teams to manage content, users, and growth initiatives safely.'],
                 ['Scalable deployment', 'A cloud-ready architecture built for future growth, new integrations, and evolving business needs.'],
               ].map(([title, desc]) => (
@@ -314,7 +330,7 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Industries served</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Built to fit cultural, commerce, and innovation brands.</h2>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Built for modern service, commerce, and product businesses.</h2>
             <div className="mt-6 flex flex-wrap gap-3">
               {industries.map((industry) => (
                 <span key={industry} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">{industry}</span>
@@ -332,6 +348,45 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Motion flow diagram</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">How the main website and admin systems work together in motion</h2>
+          </div>
+          <div className="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-slate-950/80 p-6">
+            <motion.svg viewBox="0 0 100 100" className="h-72 w-full">
+              {flowEdges.map((edge, index) => (
+                <motion.path
+                  key={`${edge.from.x}-${edge.from.y}-${index}`}
+                  d={`M ${edge.from.x} ${edge.from.y} C ${(edge.from.x + edge.to.x) / 2} ${edge.from.y - 12}, ${(edge.from.x + edge.to.x) / 2} ${edge.to.y + 12}, ${edge.to.x} ${edge.to.y}`}
+                  fill="none"
+                  stroke="rgba(255,255,255,0.22)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0.3 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.2, delay: index * 0.18 }}
+                />
+              ))}
+            </motion.svg>
+            {flowNodes.map((node, index) => (
+              <motion.div
+                key={node.title}
+                className="absolute w-40 rounded-[1.2rem] border border-white/10 bg-white/10 p-4 backdrop-blur"
+                style={{ left: `${node.x}%`, top: `${node.y}%`, transform: 'translate(-50%, -50%)' }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.16 }}
+              >
+                <p className="text-sm font-semibold text-white">{node.title}</p>
+                <p className="mt-2 text-xs leading-6 text-slate-400">{node.subtitle}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8">
@@ -340,7 +395,7 @@ export default function Home() {
             <p className="mt-4 text-slate-300">Share your vision and we’ll shape a roadmap that aligns design, technology, and growth.</p>
             <div className="mt-8 rounded-[1.5rem] border border-fuchsia-500/20 bg-fuchsia-500/10 p-5 text-sm text-slate-300">
               <p className="font-semibold text-white">Final CTA</p>
-              <p className="mt-2">“Is your current website just a digital brochure—or is it actively helping your business grow?”</p>
+              <p className="mt-2">“Your business in your hands — is your website helping you lead, convert, and grow, or just sit there?”</p>
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
