@@ -103,6 +103,40 @@ const featurePanels = [
   },
 ];
 
+const capabilityCards = [
+  { title: 'Storefront depth', body: 'Landing, collections, product browsing, cart, checkout, account, login, and order flows that signal a complete commerce build.', icon: Globe2, accent: 'from-cyan-500/20 to-slate-900/70' },
+  { title: 'AI layer', body: 'Chat, search, content assistance, image enhancement, and intelligent support experiences designed to feel premium and useful.', icon: BrainCircuit, accent: 'from-fuchsia-500/20 to-slate-900/70' },
+  { title: 'Operations', body: 'Payment intent creation, coupon validation, order logic, notifications, and webhooks that support real business workflows.', icon: Workflow, accent: 'from-emerald-500/20 to-slate-900/70' },
+  { title: 'Admin system', body: 'Dedicated admin modules for catalog control, orders, messaging, sourcing, reviews, and appearance settings.', icon: ShieldCheck, accent: 'from-amber-500/20 to-slate-900/70' },
+  { title: 'Security', body: 'Protected entry points, role-based control, separate auth paths, and platform structure that support serious business use.', icon: Layers3, accent: 'from-slate-600/40 to-slate-900/70' },
+  { title: 'Scale potential', body: 'A full-stack foundation with frontend, API routes, database patterns, and deployment config built to grow beyond a one-page concept.', icon: Rocket, accent: 'from-cyan-500/15 to-fuchsia-500/15' },
+];
+
+const proofSteps = [
+  { title: 'Discovery-ready storefront', body: 'Landing pages, collections, product browsing, sizing help, shipping, returns, cart, and checkout give prospects confidence that you understand conversion paths.' },
+  { title: 'Account and retention logic', body: 'Login, signup, account, orders, likes, reviews, rewards, and restock notifications show customer-retention thinking instead of just acquisition design.' },
+  { title: 'Revenue engine integrations', body: 'Payment intents, coupon validation, manual orders, Stripe webhooks, and confirmation emails prove the build can support real transactions and post-purchase flow.' },
+];
+
+const adminRoutes = [
+  { route: '/admin/dashboard', title: 'Business oversight', tag: 'Operations', items: ['Dashboard', 'Orders', 'Notifications', 'Checkout'] },
+  { route: '/admin/products', title: 'Merchandising and catalog control', tag: 'Catalog', items: ['Products', 'Categories', 'Import', 'Appearance'] },
+  { route: '/admin/coupons', title: 'Growth and loyalty systems', tag: 'Retention', items: ['Coupons', 'Likes', 'Reviews', 'Chatbot KB'] },
+  { route: '/admin/sourcing', title: 'Advanced brand operations', tag: 'Workflow', items: ['Sourcing', 'Scan', 'Admin login', 'Admin root'] },
+];
+
+const apiHighlights = [
+  { title: 'Payments and checkout', body: '/api/create-payment-intent, /api/update-payment-intent, /api/validate-coupon, and /api/stripe-webhook support real transaction flows.' },
+  { title: 'Orders and notifications', body: '/api/orders, /api/order-by-intent, /api/create-manual-order, and /api/send-order-confirmation support operations after the click.' },
+  { title: 'AI and growth features', body: '/api/chat, /api/enhance-image, /api/sourcing, /api/reviews, /api/rewards, and /api/notify-restock add retention and automation layers.' },
+];
+
+const packaging = [
+  { name: 'Brand storefront', tier: 'Starter', price: 'Premium launch', description: 'For labels that need a polished custom site with product pages, collections, account flows, and a mobile-first experience.', items: ['Custom homepage and product architecture', 'Cart, auth, account, and order pages', 'Performance-first responsive front end'] },
+  { name: 'Revenue system', tier: 'Best fit', price: 'Growth build', description: 'For businesses that need checkout logic, admin tooling, and operations support instead of a surface-level redesign.', items: ['Everything in Starter', 'Payment flows, coupons, emails, and order logic', 'Custom admin modules for products, orders, and content'] },
+  { name: 'AI commerce stack', tier: 'Advanced', price: 'Differentiated build', description: 'For brands that want differentiation through AI-assisted features, workflow automation, and tailored internal tools.', items: ['Everything in Revenue System', 'Chat, content workflows, media enhancement, or sourcing', 'Bespoke modules designed around the brand’s operations'] },
+];
+
 const galleryItems = [
   'Immersive brand storytelling',
   'Interactive product journeys',
@@ -200,30 +234,170 @@ export default function Home() {
 
       <section id="case-study" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-cyan-950/20 backdrop-blur lg:p-10">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Case study</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">Ethnic Story AI Gen</h2>
-              <p className="mt-4 text-lg text-slate-300">A featured use case showing how we combine storytelling, systems design, and AI-enabled product thinking to create platforms that help businesses move faster, convert better, and operate with more confidence.</p>
-              <div className="mt-6 space-y-3 text-sm text-slate-300">
-                <div className="flex items-start gap-3"><CircleDollarSign className="mt-1 text-fuchsia-300" size={18} /> Built a conversion-first narrative that turns curiosity into qualified inquiries and deeper engagement.</div>
-                <div className="flex items-start gap-3"><MessageSquareText className="mt-1 text-fuchsia-300" size={18} /> Added AI-assisted discovery flows so visitors can explore complex offerings without friction.</div>
-                <div className="flex items-start gap-3"><Building2 className="mt-1 text-fuchsia-300" size={18} /> Delivered a multi-layer admin portal for content, campaigns, users, analytics, and secure operations.</div>
+              <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">I build premium commerce systems, not just pretty storefronts.</h2>
+              <p className="mt-4 text-lg text-slate-300">This page turns the Ethnic Story AI repository into a sales asset by showing buyers the depth of the product: AI-assisted commerce flows, payments, customer accounts, operational tooling, and a serious admin system built for real business use.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="#offers" className="inline-flex items-center gap-2 rounded-full bg-fuchsia-500 px-5 py-3 font-semibold text-white transition hover:bg-fuchsia-400">Use this as my service page <ArrowRight size={18} /></a>
+                <a href="#admin" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 font-semibold text-slate-200 transition hover:bg-white/10">See the admin architecture</a>
               </div>
             </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              {[
-                ['Launch-ready experience', 'Fast, elegant storytelling with a premium visual system and clear conversion paths.'],
-                ['AI-powered discovery', 'Intelligent search and content recommendations that make complex offerings easier to navigate.'],
-                ['Secure admin operations', 'Role-based tools for internal teams to manage content, users, and growth initiatives safely.'],
-                ['Scalable deployment', 'A cloud-ready architecture built for future growth, new integrations, and evolving business needs.'],
-              ].map(([title, desc]) => (
-                <div key={title} className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
-                  <p className="text-lg font-semibold text-white">{title}</p>
-                  <p className="mt-2 text-sm text-slate-400">{desc}</p>
+            <div className="rounded-[1.6rem] border border-white/10 bg-slate-950/70 p-5">
+              <div className="space-y-3">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="flex items-center gap-2 text-cyan-200"><PanelTop size={16} /> AI commerce + storytelling</div>
+                  <p className="mt-2 text-sm text-slate-300">A premium experience with clear navigation, conversion paths, and product-led storytelling.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="flex items-center gap-2 text-fuchsia-200"><Bot size={16} /> Protected admin workspace</div>
+                  <p className="mt-2 text-sm text-slate-300">Content control, approvals, operations, appearance, and user management in one system.</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <div className="flex items-center gap-2 text-emerald-200"><DatabaseZap size={16} /> Revenue and workflow engine</div>
+                  <p className="mt-2 text-sm text-slate-300">Payments, coupons, notifications, order logic, and webhooks all work together in one product stack.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/70 p-5">
+            <p className="text-3xl font-semibold text-white">12+</p>
+            <p className="mt-2 text-sm leading-7 text-slate-400">Customer-facing routes across storefront, checkout, account, orders, auth, collections, and support flows.</p>
+          </div>
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/70 p-5">
+            <p className="text-3xl font-semibold text-white">14+</p>
+            <p className="mt-2 text-sm leading-7 text-slate-400">Dedicated admin modules for merchandising, operations, sourcing, reviews, coupons, and more.</p>
+          </div>
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/70 p-5">
+            <p className="text-3xl font-semibold text-white">20+</p>
+            <p className="mt-2 text-sm leading-7 text-slate-400">API route groups for payments, product media, notifications, chat, storefront config, and webhooks.</p>
+          </div>
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/70 p-5">
+            <p className="text-3xl font-semibold text-white">Full-stack</p>
+            <p className="mt-2 text-sm leading-7 text-slate-400">Next.js frontend, API handlers, middleware, docs, database, Supabase, and deployment config in one system.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="capabilities" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+          <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Capabilities</p>
+              <h2 className="mt-3 text-3xl font-semibold text-white">What makes this more valuable than a template site</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-7 text-slate-400">This repo shows you can build a custom online store with advanced business logic, not just style a homepage. That is the angle to market your website creation business.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {capabilityCards.map((card) => (
+              <motion.article key={card.title} whileHover={{ y: -4, scale: 1.01 }} className={`rounded-[1.35rem] border border-white/10 bg-gradient-to-br ${card.accent} p-5`}>
+                <card.icon className="text-fuchsia-300" size={22} />
+                <p className="mt-4 text-lg font-semibold text-white">{card.title}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-300">{card.body}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Feature proof</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">A repo structure that sells capability fast</h2>
+            <div className="mt-8 space-y-4">
+              {proofSteps.map((step, index) => (
+                <div key={step.title} className="rounded-[1.25rem] border border-white/10 bg-slate-900/70 p-5">
+                  <p className="text-sm font-semibold text-fuchsia-200">0{index + 1}</p>
+                  <p className="mt-2 text-lg font-semibold text-white">{step.title}</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-400">{step.body}</p>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Messaging angle</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">How to frame this commercially</h2>
+            <ul className="mt-6 space-y-3 text-slate-300">
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Lead with “I build custom e-commerce systems for brands that need more than Shopify themes.”</li>
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Position this project as a live example of AI features, backend logic, and admin tooling working together.</li>
+              <li className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={16} />Sell outcomes: faster operations, custom brand UX, better merchandising control, and conversion-focused checkout.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Admin routes</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">The control panel modules worth highlighting</h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-400">Admin pages are a major selling point because most small business clients never get them in typical freelance builds. This is the section that makes your service feel closer to an agency or product studio.</p>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {adminRoutes.map((route) => (
+              <div key={route.route} className="rounded-[1.4rem] border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center justify-between gap-3">
+                  <code className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-200">{route.route}</code>
+                  <span className="rounded-full border border-fuchsia-500/20 bg-fuchsia-500/10 px-3 py-1 text-xs font-semibold text-fuchsia-200">{route.tag}</span>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold text-white">{route.title}</h3>
+                <ul className="mt-4 space-y-2 text-sm text-slate-400">
+                  {route.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2"><ChevronRight className="text-cyan-300" size={14} />{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">API feature stack</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">Backend endpoints that strengthen your pitch</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {apiHighlights.map((item) => (
+              <div key={item.title} className="rounded-[1.3rem] border border-white/10 bg-slate-900/70 p-5">
+                <p className="text-lg font-semibold text-white">{item.title}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="offers" className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Service packaging</p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">How to turn this case study into a paid offer</h2>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-3">
+            {packaging.map((plan) => (
+              <div key={plan.name} className={`rounded-[1.4rem] border border-white/10 p-6 ${plan.tier === 'Best fit' ? 'bg-gradient-to-br from-fuchsia-500/20 to-cyan-500/15' : 'bg-white/5'}`}>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">{plan.tier}</p>
+                <p className="mt-4 text-2xl font-semibold text-white">{plan.name}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-400">{plan.description}</p>
+                <div className="mt-5 rounded-[1.1rem] border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-300">
+                  <p className="font-semibold text-white">{plan.price}</p>
+                  <ul className="mt-3 space-y-2">
+                    {plan.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2"><ChevronRight className="mt-1 text-fuchsia-300" size={14} />{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -243,86 +417,6 @@ export default function Home() {
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 backdrop-blur">
-          <div className="mb-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Feature intelligence</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">The capabilities that make a difference in real-world use</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            {useCaseHighlights.map((item) => (
-              <motion.div key={item.title} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1.35rem] border border-white/10 bg-white/5 p-5">
-                <p className="text-lg font-semibold text-white">{item.title}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-400">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 backdrop-blur">
-          <div className="mb-8 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Supported features</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">Every capability is designed to create measurable business value</h2>
-            </div>
-            <p className="max-w-2xl text-sm leading-7 text-slate-400">These features matter because they improve trust, speed, conversion, and control across the full customer and team journey.</p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {featurePanels.map((panel) => (
-              <motion.div key={panel.title} whileHover={{ y: -4, scale: 1.01 }} className={`rounded-[1.35rem] border border-white/10 bg-gradient-to-br ${panel.accent} p-5`}>
-                <p className="text-lg font-semibold text-white">{panel.title}</p>
-                <p className="mt-2 text-sm leading-7 text-slate-300">{panel.body}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Capabilities</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">What you can expect when we build with you</h2>
-              <ul className="mt-6 space-y-3 text-slate-300">
-                {capabilities.map((item) => (
-                  <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-cyan-300" size={18} />{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Differentiators</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">Why this approach stands apart</h2>
-              <ul className="mt-6 space-y-3 text-slate-300">
-                {differentiators.map((item) => (
-                  <li key={item} className="flex items-start gap-3"><ChevronRight className="mt-1 text-fuchsia-300" size={18} />{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-fuchsia-200">Services</p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">Built for ambitious digital growth.</h2>
-          </div>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <motion.article key={service.title} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1.5rem] border border-white/10 bg-slate-900/70 p-6">
-              <service.icon className="text-fuchsia-300" size={24} />
-              <h3 className="mt-4 text-xl font-semibold text-white">{service.title}</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-400">{service.description}</p>
-            </motion.article>
-          ))}
         </div>
       </section>
 
