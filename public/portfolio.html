@@ -67,6 +67,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
 
     /* HERO */
     .hero {
@@ -542,12 +543,13 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="nav-logo">molkarinfotech</a>
+    <a href="/" class="nav-logo">molkarinfotech</a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="/portfolio" class="active">Next.js Route →</a></li>
     </ul>
     <a href="#contact" class="btn-primary" style="font-size:0.78rem;padding:10px 22px;">Start a Project</a>
   </nav>
@@ -559,28 +561,16 @@
     <p class="hero-sub">From e-commerce platforms to AI-powered web applications — we design and develop fast, scalable, and beautiful digital experiences that convert.</p>
     <div class="hero-cta">
       <a href="#work" class="btn-primary">View Our Work</a>
-      <a href="#contact" class="btn-secondary">Get in Touch</a>
+      <a href="/portfolio" class="btn-secondary">View Next.js Route →</a>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-number">15+</div>
-      <div class="stat-label">Projects Delivered</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Client Satisfaction</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">48h</div>
-      <div class="stat-label">Avg. Turnaround</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">3+</div>
-      <div class="stat-label">Years Experience</div>
-    </div>
+    <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Projects Delivered</div></div>
+    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Client Satisfaction</div></div>
+    <div class="stat-item"><div class="stat-number">48h</div><div class="stat-label">Avg. Turnaround</div></div>
+    <div class="stat-item"><div class="stat-number">3+</div><div class="stat-label">Years Experience</div></div>
   </div>
 
   <!-- SERVICES -->
@@ -589,36 +579,12 @@
     <h2 class="section-title">End-to-end digital solutions</h2>
     <p class="section-desc">We handle everything from strategy and design through to deployment and beyond — so you can focus on your business.</p>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>E-Commerce Development</h3>
-        <p>Custom storefronts with Stripe payments, inventory management, admin portals, and order fulfilment pipelines built for scale.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>AI Integration</h3>
-        <p>Embed AI-powered features into your product — from automated content generation and image analysis to intelligent search and recommendations.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <h3>UI / UX Design</h3>
-        <p>Pixel-perfect interfaces designed with conversion in mind. Clean, modern aesthetics with Framer Motion animations and responsive layouts.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🗄️</div>
-        <h3>Backend & Database</h3>
-        <p>Supabase, PostgreSQL, and serverless API architecture. Secure auth flows, real-time data, and reliable infrastructure on Vercel.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📱</div>
-        <h3>Next.js Applications</h3>
-        <p>Server-side rendered, SEO-optimised web apps built with Next.js, React 19, and TypeScript. Fast by default, beautiful by design.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🚀</div>
-        <h3>Launch & Scale</h3>
-        <p>CI/CD pipelines, Vercel deployment, domain configuration, and ongoing technical support to keep your product running smoothly.</p>
-      </div>
+      <div class="service-card"><div class="service-icon">⚡</div><h3>E-Commerce Development</h3><p>Custom storefronts with Stripe payments, inventory management, admin portals, and order fulfilment pipelines built for scale.</p></div>
+      <div class="service-card"><div class="service-icon">🤖</div><h3>AI Integration</h3><p>Embed AI-powered features into your product — from automated content generation and image analysis to intelligent search and recommendations.</p></div>
+      <div class="service-card"><div class="service-icon">🎨</div><h3>UI / UX Design</h3><p>Pixel-perfect interfaces designed with conversion in mind. Clean, modern aesthetics with Framer Motion animations and responsive layouts.</p></div>
+      <div class="service-card"><div class="service-icon">🗄️</div><h3>Backend &amp; Database</h3><p>Supabase, PostgreSQL, and serverless API architecture. Secure auth flows, real-time data, and reliable infrastructure on Vercel.</p></div>
+      <div class="service-card"><div class="service-icon">📱</div><h3>Next.js Applications</h3><p>Server-side rendered, SEO-optimised web apps built with Next.js, React 19, and TypeScript. Fast by default, beautiful by design.</p></div>
+      <div class="service-card"><div class="service-icon">🚀</div><h3>Launch &amp; Scale</h3><p>CI/CD pipelines, Vercel deployment, domain configuration, and ongoing technical support to keep your product running smoothly.</p></div>
     </div>
   </section>
 
@@ -629,121 +595,47 @@
     <p class="section-eyebrow">Featured Case Study</p>
     <h2 class="section-title">Ethnic Story — AI-Generated E-Commerce Platform</h2>
     <p class="section-desc">A full-scale Indian ethnic clothing store, designed and built entirely with AI-assisted development. From concept to deployment in record time.</p>
-
     <div class="case-study-header">
       <div>
         <span class="cs-badge">Case Study · 2026</span>
-        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:24px;">
-          Ethnic Story is a modern Indian ethnic clothing e-commerce platform built to serve a new generation of fashion-forward shoppers who want culturally rich designs with a contemporary edge. The entire platform — from UI to backend — was architected and delivered using AI-powered development workflows.
-        </p>
-        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;">
-          The project demonstrates what's possible when deep technical expertise meets AI tooling: a production-ready, full-stack e-commerce site with advanced features delivered at startup speed.
-        </p>
+        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:24px;">Ethnic Story is a modern Indian ethnic clothing e-commerce platform built to serve a new generation of fashion-forward shoppers who want culturally rich designs with a contemporary edge.</p>
+        <p style="font-size:0.95rem;color:var(--muted);line-height:1.85;">The project demonstrates what’s possible when deep technical expertise meets AI tooling: a production-ready, full-stack e-commerce site with advanced features delivered at startup speed.</p>
         <div class="tech-stack">
-          <span class="tech-tag">Next.js 16</span>
-          <span class="tech-tag">React 19</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Supabase</span>
-          <span class="tech-tag">Stripe</span>
-          <span class="tech-tag">Vercel</span>
-          <span class="tech-tag">Tailwind CSS</span>
-          <span class="tech-tag">Framer Motion</span>
-          <span class="tech-tag">AI Image Gen</span>
-          <span class="tech-tag">Google Vision API</span>
+          <span class="tech-tag">Next.js 16</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">Stripe</span><span class="tech-tag">Vercel</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Framer Motion</span><span class="tech-tag">AI Image Gen</span><span class="tech-tag">Google Vision API</span>
         </div>
       </div>
       <div class="case-study-meta">
-        <div class="meta-row">
-          <span class="meta-label">Client</span>
-          <span class="meta-value">Ethnic Story</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Category</span>
-          <span class="meta-value">E-Commerce · Fashion · Indian Ethnic Wear</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Deliverables</span>
-          <span class="meta-value">Full-Stack Web App, Admin Portal, Payment Integration, AI Features</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Year</span>
-          <span class="meta-value">2026</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Status</span>
-          <span class="meta-value" style="color:#4ade80;">✓ Live &amp; Production</span>
-        </div>
+        <div class="meta-row"><span class="meta-label">Client</span><span class="meta-value">Ethnic Story</span></div>
+        <div class="meta-row"><span class="meta-label">Category</span><span class="meta-value">E-Commerce · Fashion · Indian Ethnic Wear</span></div>
+        <div class="meta-row"><span class="meta-label">Deliverables</span><span class="meta-value">Full-Stack Web App, Admin Portal, Payment Integration, AI Features</span></div>
+        <div class="meta-row"><span class="meta-label">Year</span><span class="meta-value">2026</span></div>
+        <div class="meta-row"><span class="meta-label">Status</span><span class="meta-value" style="color:#4ade80;">✓ Live &amp; Production</span></div>
       </div>
     </div>
-
-    <!-- FEATURE BREAKDOWN -->
     <div class="cs-grid">
-      <div class="cs-card">
-        <div class="cs-card-num">01</div>
-        <h4>AI-Powered Product System</h4>
-        <p>Integrated Google Vision API for automated product image analysis, combined with AI-generated product descriptions and category tagging. Reduces manual content work by 80%.</p>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-num">02</div>
-        <h4>Full E-Commerce Pipeline</h4>
-        <p>Stripe payment processing with webhooks, real-time order confirmation emails, inventory tracking, and a full admin portal for product and order management.</p>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-num">03</div>
-        <h4>Authentication &amp; User Accounts</h4>
-        <p>Supabase Auth with secure session management, user profiles, order history, and role-based access control for admin vs. customer views.</p>
-      </div>
-      <div class="cs-card">
-        <div class="cs-card-num">04</div>
-        <h4>Performance &amp; SEO</h4>
-        <p>Server-side rendering via Next.js App Router, optimised images, and Vercel Edge Network delivery. PageSpeed scores optimised for organic discovery.</p>
-      </div>
+      <div class="cs-card"><div class="cs-card-num">01</div><h4>AI-Powered Product System</h4><p>Integrated Google Vision API for automated product image analysis, combined with AI-generated product descriptions and category tagging. Reduces manual content work by 80%.</p></div>
+      <div class="cs-card"><div class="cs-card-num">02</div><h4>Full E-Commerce Pipeline</h4><p>Stripe payment processing with webhooks, real-time order confirmation emails, inventory tracking, and a full admin portal for product and order management.</p></div>
+      <div class="cs-card"><div class="cs-card-num">03</div><h4>Authentication &amp; User Accounts</h4><p>Supabase Auth with secure session management, user profiles, order history, and role-based access control for admin vs. customer views.</p></div>
+      <div class="cs-card"><div class="cs-card-num">04</div><h4>Performance &amp; SEO</h4><p>Server-side rendering via Next.js App Router, optimised images, and Vercel Edge Network delivery. PageSpeed scores optimised for organic discovery.</p></div>
     </div>
-
-    <!-- TIMELINE -->
     <div style="margin-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;">
       <div>
         <p class="section-eyebrow">Build Timeline</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:40px;">From idea to launch</h3>
         <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-phase">Phase 01</div>
-            <div class="timeline-title">Discovery &amp; Architecture</div>
-            <div class="timeline-desc">Requirements scoping, database schema design (Supabase/PostgreSQL), and Next.js project scaffolding with TypeScript configuration.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-phase">Phase 02</div>
-            <div class="timeline-title">Core Platform Build</div>
-            <div class="timeline-desc">Product catalogue, shopping cart, checkout flow, and Stripe integration. Admin portal with inventory management and order dashboard.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-phase">Phase 03</div>
-            <div class="timeline-title">AI Feature Integration</div>
-            <div class="timeline-desc">Google Vision API for product analysis, AI image generation pipeline, and automated content workflows for scaling the product catalogue.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-phase">Phase 04</div>
-            <div class="timeline-title">QA, Deploy &amp; Launch</div>
-            <div class="timeline-desc">End-to-end testing, Vercel deployment with CI/CD, domain configuration, and production monitoring setup.</div>
-          </div>
+          <div class="timeline-item"><div class="timeline-phase">Phase 01</div><div class="timeline-title">Discovery &amp; Architecture</div><div class="timeline-desc">Requirements scoping, database schema design (Supabase/PostgreSQL), and Next.js project scaffolding with TypeScript configuration.</div></div>
+          <div class="timeline-item"><div class="timeline-phase">Phase 02</div><div class="timeline-title">Core Platform Build</div><div class="timeline-desc">Product catalogue, shopping cart, checkout flow, and Stripe integration. Admin portal with inventory management and order dashboard.</div></div>
+          <div class="timeline-item"><div class="timeline-phase">Phase 03</div><div class="timeline-title">AI Feature Integration</div><div class="timeline-desc">Google Vision API for product analysis, AI image generation pipeline, and automated content workflows for scaling the product catalogue.</div></div>
+          <div class="timeline-item"><div class="timeline-phase">Phase 04</div><div class="timeline-title">QA, Deploy &amp; Launch</div><div class="timeline-desc">End-to-end testing, Vercel deployment with CI/CD, domain configuration, and production monitoring setup.</div></div>
         </div>
       </div>
       <div>
         <p class="section-eyebrow">Key Outcomes</p>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:40px;">What we delivered</h3>
         <div class="results-grid" style="grid-template-columns:1fr;">
-          <div class="result-card" style="text-align:left;padding:28px 32px;">
-            <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Production-Ready</div>
-            <div style="font-size:0.9rem;color:var(--muted);">Fully deployed on Vercel with live Stripe payments, real order flows, and authenticated user accounts from day one.</div>
-          </div>
-          <div class="result-card" style="text-align:left;padding:28px 32px;">
-            <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">AI-Accelerated</div>
-            <div style="font-size:0.9rem;color:var(--muted);">AI-assisted development workflow reduced build time significantly while maintaining production-grade code quality.</div>
-          </div>
-          <div class="result-card" style="text-align:left;padding:28px 32px;">
-            <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Scalable Architecture</div>
-            <div style="font-size:0.9rem;color:var(--muted);">Built on a modern, scalable stack ready to handle thousands of products, users, and transactions without architectural changes.</div>
-          </div>
+          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Production-Ready</div><div style="font-size:0.9rem;color:var(--muted);">Fully deployed on Vercel with live Stripe payments, real order flows, and authenticated user accounts from day one.</div></div>
+          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">AI-Accelerated</div><div style="font-size:0.9rem;color:var(--muted);">AI-assisted development workflow reduced build time significantly while maintaining production-grade code quality.</div></div>
+          <div class="result-card" style="text-align:left;padding:28px 32px;"><div style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Scalable Architecture</div><div style="font-size:0.9rem;color:var(--muted);">Built on a modern, scalable stack ready to handle thousands of products, users, and transactions without architectural changes.</div></div>
         </div>
       </div>
     </div>
@@ -755,34 +647,18 @@
     <h2 class="section-title">Our process</h2>
     <p class="section-desc">A clear, collaborative workflow that keeps projects on track and clients informed at every step.</p>
     <div class="process-grid">
-      <div class="process-step">
-        <div class="step-num">01</div>
-        <h4>Discovery</h4>
-        <p>We start by understanding your goals, users, and technical requirements. Clear scope = no surprises later.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">02</div>
-        <h4>Design &amp; Plan</h4>
-        <p>UI mockups, architecture decisions, and a project timeline agreed before a single line of code is written.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">03</div>
-        <h4>Build &amp; Iterate</h4>
-        <p>Rapid development with regular check-ins. You see progress weekly, not just at the end.</p>
-      </div>
-      <div class="process-step">
-        <div class="step-num">04</div>
-        <h4>Launch &amp; Support</h4>
-        <p>Smooth deployment, handover documentation, and ongoing support so you're never left in the dark.</p>
-      </div>
+      <div class="process-step"><div class="step-num">01</div><h4>Discovery</h4><p>We start by understanding your goals, users, and technical requirements. Clear scope = no surprises later.</p></div>
+      <div class="process-step"><div class="step-num">02</div><h4>Design &amp; Plan</h4><p>UI mockups, architecture decisions, and a project timeline agreed before a single line of code is written.</p></div>
+      <div class="process-step"><div class="step-num">03</div><h4>Build &amp; Iterate</h4><p>Rapid development with regular check-ins. You see progress weekly, not just at the end.</p></div>
+      <div class="process-step"><div class="step-num">04</div><h4>Launch &amp; Support</h4><p>Smooth deployment, handover documentation, and ongoing support so you're never left in the dark.</p></div>
     </div>
   </section>
 
   <!-- CTA -->
   <section id="contact" class="cta-section">
-    <p class="section-eyebrow">Let's Work Together</p>
+    <p class="section-eyebrow">Let’s Work Together</p>
     <h2>Ready to build<br/>something great?</h2>
-    <p>Tell us about your project. We'll get back to you within 24 hours with a clear plan and honest advice.</p>
+    <p>Tell us about your project. We’ll get back to you within 24 hours with a clear plan and honest advice.</p>
     <div class="hero-cta">
       <a href="mailto:molkarinfotech@gmail.com" class="btn-primary">molkarinfotech@gmail.com</a>
       <a href="https://github.com/molkarinfotech" class="btn-secondary" target="_blank">View GitHub</a>
@@ -798,6 +674,7 @@
       <a href="#work">Work</a>
       <a href="#process">Process</a>
       <a href="mailto:molkarinfotech@gmail.com">Contact</a>
+      <a href="/portfolio">Next.js Route</a>
     </div>
   </footer>
 
