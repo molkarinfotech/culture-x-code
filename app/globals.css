@@ -107,7 +107,6 @@ body {
   gap: 5px;
   width: 36px;
   height: 36px;
-  /* Solid surface background + strong border for visibility */
   background: var(--surface);
   border: 1.5px solid var(--accent);
   border-radius: var(--radius);
@@ -119,13 +118,16 @@ body {
   background: var(--accent-light);
   border-color: var(--accent-hover);
 }
-.hamburger span {
+/* span elements (incl. Framer Motion wrappers) used as the three bars */
+.hamburger span,
+.hamburger > * {
   display: block;
-  height: 1.5px;
-  /* Accent-coloured bars for strong contrast */
+  width: 100%;        /* fills the padded button area so bars are visible */
+  height: 2px;        /* slightly thicker for visibility */
   background: var(--accent);
   border-radius: 2px;
   transform-origin: center;
+  flex-shrink: 0;
 }
 
 /* ── MOBILE DRAWER ── */
@@ -169,7 +171,6 @@ body {
   padding: 14px 24px !important;
   font-size: 0.92rem !important;
   font-weight: 700 !important;
-  /* Solid accent fill with high-contrast inverse text */
   background: var(--accent) !important;
   color: var(--bg) !important;
   border: 2px solid var(--accent) !important;
