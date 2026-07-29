@@ -20,7 +20,6 @@ export default function ContactPage() {
             <p style={{ fontSize: '1rem', color: 'var(--muted)', lineHeight: 1.8, marginBottom: 36 }}>No pitch deck, no sales process. An honest conversation about what you&rsquo;re trying to achieve, whether we can help, and roughly what it would cost. If we&rsquo;re not the right fit, we&rsquo;ll tell you.</p>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a href="mailto:molkarinfotech@gmail.com" className="btn-primary">Send us an email →</a>
-              <a href="https://github.com/molkarinfotech" className="btn-secondary" target="_blank" rel="noopener noreferrer">View GitHub</a>
             </div>
             <p style={{ marginTop: 20, fontSize: '0.8rem', color: 'var(--faint)' }}>molkarinfotech@gmail.com · Response within 24 hours</p>
           </div>
